@@ -1,0 +1,879 @@
+@charset "utf-8";
+@import url(reset.css);
+@import url(fonts.css);
+/* Общие */
+.left   {
+	float: left;
+}
+.right  {
+	float: right;
+}
+.clear  {
+	clear: both;
+}
+.clearfix::after {
+	content:"";
+	display: table;
+	clear: both;
+}
+.relative {
+	position: relative;
+	z-index: 100;
+}
+.bold {
+	font-weight: bold;
+}
+body {
+	background: #ffffff url(/images/bg.jpg) repeat-x 0 42px;
+}
+a {
+	font: 14px/18px "Display";
+    color: #486f86;
+}
+a:hover {
+    color: #006ca9;
+    text-decoration: underline;
+}
+p {
+	font: 14px/19px "Display";
+	color: #666666;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+ul {
+	margin-bottom: 20px;
+}
+li {
+	font: 14px/19px "Display";
+	color: #666666;
+}
+h1 {
+	font: 23px "DisplayMedium";
+	color: #333;
+    padding-bottom: 10px;
+}
+h2 {
+	font: 21px "DisplayMedium";
+	color: #333;
+}
+input,
+select {
+	vertical-align: middle;
+}
+input {
+    border: 1px solid #d3d9dd;
+	border-radius: 2px;
+	background: #fefefe;
+	box-shadow: inset 0 1px 5px 0 #dbdfe4;
+	font: italic 14px "Display";
+	color: #616161;
+	padding: 0 10px;
+}
+input[type="submit"]  {
+	font: 15px/38px "DisplayMedium";
+	color: #fff;
+	text-transform: uppercase;
+	display: block;
+	height: 38px;
+	border-radius: 2px;
+	padding: 0 13px;
+	text-decoration: none;
+	border: none;
+	text-shadow: -1px -1px 1px #677d00;
+	background: #bad000;
+	background: -moz-linear-gradient(top,  #bad000 0%, #5d8f00 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bad000), color-stop(100%,#5d8f00));
+	background: -webkit-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: -o-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: -ms-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: linear-gradient(to bottom,  #bad000 0%,#5d8f00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bad000', endColorstr='#5d8f00',GradientType=0 );
+}
+input[type="submit"]:active {
+	box-shadow: inset 0 2px 4px 0 #547a00;
+	background: #5d8f00;
+	background: -moz-linear-gradient(top,  #5d8f00 0%, #bad000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5d8f00), color-stop(100%,#bad000));
+	background: -webkit-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: -o-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: -ms-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: linear-gradient(to bottom,  #5d8f00 0%,#bad000 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5d8f00', endColorstr='#bad000',GradientType=0 );
+}
+.container {
+    width: 930px;
+    margin: 0 auto;
+}
+/* Верхнее меню */
+.top {
+	height: 42px;
+	border-bottom: 1px solid #c6cfd2;
+	position: relative;
+	z-index: 500;
+	background: #fdfefe;
+	background: -moz-linear-gradient(top,  rgba(253,254,254,1) 0%, rgba(234,239,243,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(253,254,254,1)), color-stop(100%,rgba(234,239,243,1)));
+	background: -webkit-linear-gradient(top,  rgba(253,254,254,1) 0%,rgba(234,239,243,1) 100%);
+	background: -o-linear-gradient(top,  rgba(253,254,254,1) 0%,rgba(234,239,243,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(253,254,254,1) 0%,rgba(234,239,243,1) 100%);
+	background: linear-gradient(to bottom,  rgba(253,254,254,1) 0%,rgba(234,239,243,1) 100%);
+}
+nav span {
+	float: left;
+}
+nav span a {
+	padding-right: 15px;
+	margin-right: 20px;
+	font: 14px/42px "DisplayMedium";
+	color: #333333;
+	text-decoration: none;
+	display: block;
+	background:url(/images/arrow.png) no-repeat right 16px;
+}
+nav span a:hover {
+	color: #333333;
+	text-decoration: underline;
+}
+/* Регистрация, авторизация, личный кабинет */
+.reg,
+.enter {
+	height: 28px;
+	margin-top: 7px;
+	border-left: 1px dotted #c0c3c5;
+}
+.reg {
+	background:url(/images/ico_reg.png) no-repeat 15px center;
+	padding-right: 15px;
+}
+.enter {
+	background:url(/images/ico_enter.png) no-repeat 15px center;
+}
+.reg a,
+.enter a {
+	height: 27px;
+	padding-top: 8px;
+	padding-left: 12px;
+	margin-left: 20px;
+	display: block;
+	font: 12px "Display";
+	color: #222222;
+}
+.enter a {
+	text-decoration-style: dotted;
+}
+.reg a:hover,
+.enter a:hover {
+	text-decoration: none;
+}
+main.narrow .auth {
+	width: 230px;
+}
+main.narrow .auth label {
+	color: #666666;
+	font: 14px "Display";
+}
+main.narrow .auth label span {
+	color: #cc0000;
+	margin-left: 5px;
+}
+main.narrow .auth input[type="text"],
+main.narrow .auth input[type="email"],
+main.narrow .auth input[type="password"] {
+	width: 200px;
+	padding: 5px 10px;
+	margin-bottom: 15px;
+	color: #616161;
+	background: #fefefe;
+	font: italic 14px "Display";
+	border: 1px solid #d3d9dd;
+	border-radius: 2px;
+	box-shadow: inset 0 1px 5px 0 #dbdfe4;
+}
+main.narrow .auth input[type="checkbox"] {
+	width: 14px;
+	height: 14px;
+	margin: 7px 7px 10px 0;
+}
+main.narrow .auth input[type="submit"] {
+	width: 220px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/* Лого */
+header {
+	padding-top: 25px;
+}
+header .logo {
+	width: 490px;
+	height: 100px;
+}
+header .logo span a {
+	width: 230px;
+	height: 80px;
+	display: block;
+	padding-top: 20px;
+	font: 19px "Display";
+	color: #555555;
+	text-align: center;
+	text-decoration: none;
+}
+/* Режим работы */
+.work   {
+	margin-left: 70px;
+}
+.work p {
+	margin: 8px 0;
+}
+.tel {
+	font: 18px "DisplayBold";
+	color: #454545;
+}
+.time {
+	font: 14px/18px "Display";
+	color: #333333;
+	padding-left: 20px;
+	background:url(/images/clock.png) no-repeat left top;
+}
+.tel span, .time span {
+	color: #959595;
+	font-weight: normal;
+}
+.email {
+	padding-left: 20px;
+	background:url(/images/email.png) no-repeat left center;
+}
+/* Корзина */
+.basket {
+	width: 170px;
+	margin-top: 9px;
+	position: relative;
+}
+.basket .title {
+	margin-bottom: 15px;
+}
+.basket .title a {
+	font: 18px "DisplayMedium";
+	color: #454545;
+	text-decoration: none;
+	border-bottom: 1px dotted #232323;
+}
+.basket .title a:hover {
+	border: none;
+}
+.basket .inf {
+	font: 14px "Display";
+	color: #8a969c;
+}
+.basket .inf span {
+	display: block;
+	font: 18px "DisplayBold";
+	color: #333333;
+	margin-top: 5px;
+}
+/* Кнопки */
+.buttons {
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+.btn {
+	position: relative;
+}
+/* Стандартный вид кнопок */
+.btn a,
+aside.filter .btn input {
+	font: 15px/38px "DisplayMedium";
+	color: #fff;
+	text-transform: uppercase;
+	display: block;
+	height: 38px;
+	border-radius: 2px;
+	padding: 0 13px;
+	text-decoration: none;
+	border: none;
+	text-shadow: -1px -1px 1px #00629b;
+	background: #008bc1;
+	background: -moz-linear-gradient(top,  #008bc1 0%, #005296 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#008bc1), color-stop(100%,#005296));
+	background: -webkit-linear-gradient(top,  #008bc1 0%,#005296 100%);
+	background: -o-linear-gradient(top,  #008bc1 0%,#005296 100%);
+	background: -ms-linear-gradient(top,  #008bc1 0%,#005296 100%);
+	background: linear-gradient(to bottom,  #008bc1 0%,#005296 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008bc1', endColorstr='#005296',GradientType=0 );
+}
+.btn a:hover,
+aside.filter .btn input:hover {
+	box-shadow: inset 0 0 4px 1px #00bde5;
+	color: #fff;
+	text-decoration: none;
+}
+.btn a:active,
+aside.filter .btn input:active {
+	background: #005296;
+	background: -moz-linear-gradient(top,  #005296 0%, #008bc1 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#005296), color-stop(100%,#008bc1));
+	background: -webkit-linear-gradient(top,  #005296 0%,#008bc1 100%);
+	background: -o-linear-gradient(top,  #005296 0%,#008bc1 100%);
+	background: -ms-linear-gradient(top,  #005296 0%,#008bc1 100%);
+	background: linear-gradient(to bottom,  #005296 0%,#008bc1 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005296', endColorstr='#008bc1',GradientType=0 );
+}
+/* Альтернативный вид кнопок */
+.btn.alt a {
+	cursor: pointer;
+	color: #ffffff;
+	text-shadow: -1px -1px 1px #677d00;
+	background: #bad000;
+	background: -moz-linear-gradient(top,  #bad000 0%, #5d8f00 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bad000), color-stop(100%,#5d8f00));
+	background: -webkit-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: -o-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: -ms-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: linear-gradient(to bottom,  #bad000 0%,#5d8f00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bad000', endColorstr='#5d8f00',GradientType=0 );
+}
+.btn.alt a:hover,
+.sortBy div.compareList.active a:hover {
+	box-shadow: inset 0 0 4px 1px #b8ce67;
+}
+.btn.alt a:active,
+.sortBy div.compareList.active a:active {
+	box-shadow: inset 0 2px 4px 0 #547a00;
+	background: #5d8f00;
+	background: -moz-linear-gradient(top,  #5d8f00 0%, #bad000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5d8f00), color-stop(100%,#bad000));
+	background: -webkit-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: -o-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: -ms-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: linear-gradient(to bottom,  #5d8f00 0%,#bad000 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5d8f00', endColorstr='#bad000',GradientType=0 );
+}
+/* Кнопка корзины */
+.btn.buy a {
+	padding: 0 13px 0 50px;
+}
+.btn.buy a b {
+	display: block;
+	width: 38px;
+	height: 38px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background:url(/images/buy.png) no-repeat center center;
+	border-right: 1px solid #005595;
+	box-shadow: inset -1px 0 0 0 #218dbf;
+}
+/* Кнопка КАТАЛОГ */
+.buttons .catalog {
+	background: -moz-linear-gradient(top,  rgba(0,96,161,0.95) 0%, rgba(0,96,161,0.95) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,96,161,0.95)), color-stop(100%,rgba(0,96,161,0.95)));
+	background: -webkit-linear-gradient(top,  rgba(0,96,161,0.95) 0%,rgba(0,96,161,0.95) 100%);
+	background: -o-linear-gradient(top,  rgba(0,96,161,0.95) 0%,rgba(0,96,161,0.95) 100%);
+	background: -ms-linear-gradient(top,  rgba(0,96,161,0.95) 0%,rgba(0,96,161,0.95) 100%);
+	background: linear-gradient(to bottom,  rgba(0,96,161,0.95) 0%,rgba(0,96,161,0.95) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f20060a1', endColorstr='#f20060a1',GradientType=0 );
+}
+.buttons .darrow a {
+	padding: 0 50px 0 13px;
+}
+.buttons .darrow a b {
+	border-left: 1px solid #005595;
+	box-shadow: inset 1px 0 0 0 #218dbf;
+	display: block;
+	width: 38px;
+	height: 38px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(/images/dArrow.png) no-repeat center center;
+}
+/* Поиск */
+.search {
+	display: block;
+	width: 290px;
+	margin-left: 15px;
+	position: relative;
+}
+.search input {
+	width: 270px;
+	height: 36px;
+	line-height: 36px;
+}
+.search button {
+	width: 35px;
+	height:35px;
+	display: block;
+	cursor: pointer;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	border: none;
+	background: url(/images/search.png) no-repeat center center;
+}
+/* Обратный звонок */
+.call {
+	margin-left: 15px;
+}
+.call a {
+	height: 36px;
+	padding: 0 30px 0 67px;
+	color: #545454;
+	border: 1px solid #d0d6db;
+	text-shadow: none;
+	background: #fdfefe;
+	background: -moz-linear-gradient(top,  #fdfefe 0%, #eceef2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfefe), color-stop(100%,#eceef2));
+	background: -webkit-linear-gradient(top,  #fdfefe 0%,#eceef2 100%);
+	background: -o-linear-gradient(top,  #fdfefe 0%,#eceef2 100%);
+	background: -ms-linear-gradient(top,  #fdfefe 0%,#eceef2 100%);
+	background: linear-gradient(to bottom,  #fdfefe 0%,#eceef2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfefe', endColorstr='#eceef2',GradientType=0 );
+}
+.call a:hover {
+	border: 1px solid #a5e3fc;
+	box-shadow: 0 0 0 1px #dcf2fb;
+	color: #333333;
+}
+.call a:active {
+	border: 1px solid #bbc2c9;
+	background: #e9ecef;
+	box-shadow: inset 0 2px 5px #b3bbc2;
+}
+.call a b {
+	display: block;
+	width: 38px;
+	height: 38px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-right: 1px solid #fff;
+	box-shadow: inset -1px 0 0 0 #d0d6db;
+	background: url(/images/call.png) no-repeat center center;
+}
+/* Оформить заказ - неактивная и активная кнопка (addClass(active)) */
+.order_header a {
+	height: 36px;
+	border: 1px solid #d3d8dc;
+	background: #f7f9fa;
+	border-radius: 2px;
+	color: #999999;
+	text-shadow: none;
+	padding: 0 25px;
+	margin: 0;
+}
+.order_header a:hover {
+	background: none;
+	box-shadow: none;
+}
+.order_header a:active {
+	background: none;
+	box-shadow: none;
+}
+.order_header.active a {
+	cursor: pointer;
+	color: #ffffff;
+	text-shadow: -1px -1px 1px #677d00;
+	background: #bad000;
+	background: -moz-linear-gradient(top,  #bad000 0%, #5d8f00 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bad000), color-stop(100%,#5d8f00));
+	background: -webkit-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: -o-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: -ms-linear-gradient(top,  #bad000 0%,#5d8f00 100%);
+	background: linear-gradient(to bottom,  #bad000 0%,#5d8f00 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bad000', endColorstr='#5d8f00',GradientType=0 );
+}
+.order_header.active a:hover {
+	box-shadow: inset 0 0 4px 1px #b8ce67;
+}
+.order_header.active a:active {
+	box-shadow: inset 0 2px 4px 0 #547a00;
+	background: #5d8f00;
+	background: -moz-linear-gradient(top,  #5d8f00 0%, #bad000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5d8f00), color-stop(100%,#bad000));
+	background: -webkit-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: -o-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: -ms-linear-gradient(top,  #5d8f00 0%,#bad000 100%);
+	background: linear-gradient(to bottom,  #5d8f00 0%,#bad000 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5d8f00', endColorstr='#bad000',GradientType=0 );
+}
+/* Основная секция */
+aside, main {
+
+}
+aside.brands {
+	width: 130px;
+	margin-right: 25px;
+}
+aside.lastNews {
+	width: 130px;
+}
+main.tabs {
+	width: 630px;
+	margin: 0 auto;
+}
+aside.brands h2,
+aside.lastNews h2 {
+	padding-left: 30px;
+	margin-bottom: 10px;
+}
+aside.brands ul li:last-child,
+aside.lastNews article:last-child {
+	border-bottom: none;
+}
+/* Бренды */
+aside.brands h2 {
+	background: url(/images/brands.png) no-repeat 0 center;
+}
+aside.brands ul li {
+	padding: 10px 0;
+	border-bottom: 1px solid #dde1e5;
+	border-top: 1px solid #fff;
+}
+aside.brands ul li a {
+	font: 17px "Display";
+	color: #333333;
+}
+/* Последние новости */
+aside.lastNews h2 {
+	background: url(/images/news.png) no-repeat 0 center;
+}
+aside.lastNews article {
+	border-bottom: 1px solid #dde1e5;
+	border-top: 1px solid #fff;
+	padding: 15px 0;
+}
+aside.lastNews article .date {
+	font: 13px "DisplayMedium";
+	color: #fff;
+	padding: 0 5px;
+	background: #9eb823;
+}
+aside.lastNews article .title {
+	display: block;
+	font: 20px/24px "Display";
+	margin: 8px 0;
+}
+aside.lastNews article p {
+	font: 14px/18px "Display";
+	color: #666666;
+	margin: 0;
+}
+/* О компании */
+.about {
+	border-top: 1px solid #c5cbd0;
+	border-bottom: 1px solid #c5cbd0;
+	background: #e4eaef;
+	margin-top: 20px;
+}
+.about .container {
+	padding: 15px 0;
+}
+.about .text {
+	width: 400px;
+}
+.about .text h2 {
+	margin-bottom: 20px;
+}
+.about .text p {
+	font: 14px/20px "Display";
+	margin-bottom: 15px;
+}
+.about .bigIcons {
+	width: 300px;
+	margin-left: 35px;
+}
+.about .lastArticles {
+	width: 140px;
+}
+.about .bigIcons div {
+	position: relative;
+	border-bottom: 1px solid #fff;
+	margin-left: 120px;
+	padding: 30px 0;
+}
+.about .bigIcons div:last-child {
+	border-bottom: none;
+}
+.about .bigIcons div b {
+	width: 80px;
+	height: 80px;
+	display: block;
+	position: absolute;
+	top: 25px;
+	left: -100px;
+	background: url(/images/bigIcons.png) no-repeat;
+}
+.about .bigIcons div.ico1 b {
+	background-position: 0 0;
+}
+.about .bigIcons div.ico2 b {
+	background-position: 0 -112px;
+}
+.about .bigIcons div.ico3 b {
+	background-position: 0 -224px;
+}
+.about .bigIcons div a {
+	display: block;
+	font: 18px "DisplayMedium";
+	color: #333333;
+	margin-bottom: 4px;
+}
+.about .bigIcons div a:hover {
+	text-decoration: none;
+}
+.about .bigIcons div span {
+	display: block;
+	font: 14px "Display";
+	color: #666666;
+}
+.lastArticles h2 {
+	padding-left: 30px;
+	background: url(/images/articles.png) no-repeat 0 center;
+}
+.lastArticles article {
+	border-bottom: 1px solid #fff;
+	padding: 15px 0;
+}
+.lastArticles article:last-child {
+	border-bottom: none;
+}
+/* Breadcrumbs */
+.path {
+	margin: 15px 0;
+	font: 13px "Display";
+	color: #333333;
+}
+.path a {
+	font-size: 13px;
+}
+.path span:after {
+	content: " / ";
+}
+/* Основное поле */
+section main.narrow {
+	width: 750px;
+}
+main.wide ul,
+main.narrow ul {
+	list-style-type: disc;
+}
+main.wide ul li,
+main.narrow ul li {
+	margin-bottom: 10px;
+	margin-left: 30px;
+}
+main.wide img,
+main.narrow img {
+	border: 1px solid #D0D6DB;
+	margin: 0 25px 7px 0;
+}
+main.wide article,
+main.narrow article{
+	padding: 15px 0;
+	border-bottom: 1px solid #dde1e5;
+}
+main.wide article:last-child,
+main.narrow article:last-child {
+	border-bottom: none;
+}
+main.wide .date,
+main.narrow .date {
+	font: 13px "DisplayMedium";
+	color: #fff;
+	padding: 0 5px;
+	background: #9eb823;
+}
+main.wide .title,
+main.narrow .title {
+	display: block;
+	font: 20px/24px "Display";
+	margin: 8px 0;
+}
+main.wide table,
+main.narrow table {
+	width: 100%;
+	font: 14px/18px "Display";
+	color: #666666;
+}
+main.wide table tr,
+main.narrow table tr {
+	border-top: 1px solid #606060;
+	border-bottom: 1px solid #606060;
+}
+main.wide table tr:hover,
+main.narrow table tr:hover {
+	background-color: #dddddd;
+}
+main.wide table td.name,
+main.narrow table td.name {
+	width: 85%;
+}
+main.wide table td.price,
+main.narrow table td.price {
+	width: 15%;
+	text-align: center;
+}
+/* Дополнительное поле справа */
+aside.lastItems {
+	width: 160px;
+}
+aside.lastItems article {
+	margin: 20px 0;
+	border-bottom: 1px solid #dde1e5;
+}
+aside.lastItems article:last-child {
+	border-bottom: none;
+}
+aside.lastItems .date {
+	font: 13px "DisplayMedium";
+	color: #fff;
+	padding: 0 5px;
+	background: #9eb823;
+}
+aside.lastItems a {
+	display: block;
+	margin: 8px 0 20px 0;
+	font: 16px/20px "Display";
+}
+/* Контакты */
+main .contacts {
+	width: 450px;
+}
+main .contacts span {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+main .map {
+	width: 450px;
+}
+/* Вопросы и ответы */
+main form.faq {
+	background: #e0e8ed;
+	border: 1px solid #c1c9cf;
+	border-radius: 2px;
+	padding: 20px;
+	color: #333333;
+	margin-bottom: 15px;
+}
+main form.faq h3 {
+	font: 14px "DisplayBold";
+	color: #333333;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+main form.faq label {
+	margin: 8px 0;
+	font: 14px/19px "Display";
+	color: #666666;
+}
+main form.faq span {
+	color: #cc3333;
+}
+main form.faq p {
+	margin-bottom: 0;
+	margin-left: 90px;
+}
+main form.faq input[type="text"],
+main form.faq input[type="email"] {
+	width: 180px;
+	margin: 0 15px;
+	line-height: 23px;
+	height: 23px;
+}
+main form.faq input[type="submit"] {
+	margin-right: 15px;
+}
+main form.faq div.message {
+	margin-top: 20px;
+	vertical-align: top;
+}
+main form.faq div.message label,
+main form.faq div.message span {
+	vertical-align: top;
+}
+main form.faq textarea {
+	width: 763px;
+	height: 112px;
+	border: 1px solid #d3d9dd;
+	border-radius: 2px;
+	background: #fefefe;
+	font: 14px "Display";
+	color: #616161;
+	padding:10px;
+	margin: 0 0 0 30px;
+	box-shadow: inset 0 1px 5px 0 #dbdfe4;
+	resize: none;
+}
+/* Форма обратной связи */
+main form.feedback label {
+	font: 14px/19px "Display";
+	color: #666666;
+}
+main form.feedback span {
+	display: inline;
+	color: #cc3333;
+}
+main form.feedback input[type="text"],
+main form.feedback input[type="email"] {
+	margin-bottom: 15px;
+}
+main form.feedback input[type="text"],
+main form.feedback input[type="email"],
+main form.feedback textarea{
+	width: 430px;
+	border: 1px solid #d3d9dd;
+	border-radius: 2px;
+	background: #fefefe;
+	box-shadow: inset 0 1px 5px 0 #dbdfe4;
+	font: italic 14px "Display";
+	color: #616161;
+	padding: 5px;
+}
+main form.feedback textarea {
+	height: 100px;
+	resize: none;
+}
+/* Подвал */
+footer {
+	padding-top: 20px;
+	padding-bottom: 5px;
+	font: 13px/26px "Display";
+	color: #666666;
+}
+footer .tel {
+	margin-top: 5px;
+}
+.line {
+	border-top: 1px solid #dde1e5;
+	border-bottom: 1px solid #fff;
+}
+footer .copy,
+footer .docs {
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+footer .docs {
+	margin-left: 90px;
+}
+footer .design {
+	margin-top: 10px;
+	margin-right: 0;
+	font: 12px "Display";
+	z-index: 10;
+}
+footer .design img {
+	position: absolute;
+	top: 3px;
+	left: -40px;
+}
