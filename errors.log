@@ -1,0 +1,30 @@
+[2017-06-27 18:09:41] Emergency: App\Exceptions\DbException: SQLSTATE[HY000] [1049] Unknown database 'php22' in C:\OPENSERVER\www\profit\php2\protected\Db.php:25
+Stack trace:
+#0 C:\OPENSERVER\www\profit\php2\protected\Models\Model.php(51): App\Db->__construct()
+#1 C:\OPENSERVER\www\profit\php2\protected\Controllers\News.php(25): App\Models\Model::findLatest(3)
+#2 C:\OPENSERVER\www\profit\php2\protected\Controller.php(43): App\Controllers\News->actionDefault()
+#3 C:\OPENSERVER\www\profit\php2\public\index.php(47): App\Controller->action('Default')
+#4 {main}
+[2017-06-27 18:10:55] Emergency: App\Exceptions\DbException: SQLSTATE[HY000] [1045] Access denied for user 'root1'@'localhost' (using password: NO) in C:\OPENSERVER\www\profit\php2\protected\Db.php:25
+Stack trace:
+#0 C:\OPENSERVER\www\profit\php2\protected\Models\Model.php(51): App\Db->__construct()
+#1 C:\OPENSERVER\www\profit\php2\protected\Controllers\News.php(25): App\Models\Model::findLatest(3)
+#2 C:\OPENSERVER\www\profit\php2\protected\Controller.php(43): App\Controllers\News->actionDefault()
+#3 C:\OPENSERVER\www\profit\php2\public\index.php(47): App\Controller->action('Default')
+#4 {main}
+[2017-06-27 18:11:16] Emergency: App\Exceptions\DbException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in C:\OPENSERVER\www\profit\php2\protected\Db.php:25
+Stack trace:
+#0 C:\OPENSERVER\www\profit\php2\protected\Models\Model.php(51): App\Db->__construct()
+#1 C:\OPENSERVER\www\profit\php2\protected\Controllers\News.php(25): App\Models\Model::findLatest(3)
+#2 C:\OPENSERVER\www\profit\php2\protected\Controller.php(43): App\Controllers\News->actionDefault()
+#3 C:\OPENSERVER\www\profit\php2\public\index.php(47): App\Controller->action('Default')
+#4 {main}
+[2017-06-27 18:13:21] Error: App\Exceptions\NotFoundException: Метод не найден! in C:\OPENSERVER\www\profit\php2\protected\Controller.php:45
+Stack trace:
+#0 C:\OPENSERVER\www\profit\php2\public\index.php(47): App\Controller->action('Alls')
+#1 {main}
+[2017-06-27 18:15:09] Error: App\Exceptions\NotFoundException: Новость не найдена! in C:\OPENSERVER\www\profit\php2\protected\Controllers\News.php:47
+Stack trace:
+#0 C:\OPENSERVER\www\profit\php2\protected\Controller.php(43): App\Controllers\News->actionOne()
+#1 C:\OPENSERVER\www\profit\php2\public\index.php(47): App\Controller->action('One')
+#2 {main}
