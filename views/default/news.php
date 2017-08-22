@@ -17,7 +17,7 @@
             <article class="clearfix">
                 <img class="left" src="/images/<?php echo $item->image; ?>" width="130"/>
                 <span class="date"><?php echo $item->date; ?></span>
-                <a href="/news/one/?id=<?php echo $item->id; ?>" class="title"><?php echo $item->title; ?></a>
+                <a href="/<?php echo $this->page->name; ?>/one/?id=<?php echo $item->id; ?>" class="title"><?php echo $item->title; ?></a>
                 <p><?php echo strip_tags(mb_substr($item->text, 0, 400) . '...'); ?></p>
             </article>
 

@@ -33,8 +33,10 @@ class Papers
      */
     protected function actionOne()
     {
-        $news = $this->view->item = Paper::findById($_GET['id']);
-        if (empty($news)) {
+        $this->view->item = Paper::findById($_GET['id']);
+        $this->view->items = Paper::findLatest(5);
+        $this->view->page  = Page::findByName('papers');
+        if (empty($this->view->item)) {
             $exc = new NotFoundException('Новость не найдена!');
             Logger::getInstance()->error($exc);
             throw $exc;

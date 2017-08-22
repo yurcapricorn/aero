@@ -38,3 +38,8 @@ Stack trace:
 #0 C:\OPENSERVER\www\aero\app\Controllers\Controller.php(44): App\Controllers\News->actionOne()
 #1 C:\OPENSERVER\www\aero\public\index.php(47): App\Controllers\Controller->action('One')
 #2 {main}
+[2017-08-22 20:55:28] Error: App\Exceptions\NotFoundException: Новость не найдена! in C:\OPENSERVER\www\aero\app\Controllers\News.php:40
+Stack trace:
+#0 C:\OPENSERVER\www\aero\app\Controllers\Controller.php(44): App\Controllers\News->actionOne()
+#1 C:\OPENSERVER\www\aero\public\index.php(47): App\Controllers\Controller->action('One')
+#2 {main}

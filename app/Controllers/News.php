@@ -23,7 +23,7 @@ class News
     protected function actionDefault()
     {
         $this->view->items = Article::findAll();
-        $this->view->page = Page::findByName('news');
+        $this->view->page  = Page::findByName('news');
         $this->view->display(__DIR__ . '/../../views/default/news.php');
     }
 
@@ -33,8 +33,10 @@ class News
      */
     protected function actionOne()
     {
-        $news = $this->view->item = Article::findById($_GET['id']);
-        if (empty($news)) {
+        $this->view->item  = Article::findById($_GET['id']);
+        $this->view->items = Article::findLatest(5);
+        $this->view->page  = Page::findByName('news');
+        if (empty($this->view->item)) {
             $exc = new NotFoundException('Новость не найдена!');
             Logger::getInstance()->error($exc);
             throw $exc;

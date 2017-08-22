@@ -1,39 +1,35 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Новости</title>
-    <link type="text/css" rel="stylesheet" href="/css/style.css" />
-</head>
-<body>
+<?php require __DIR__ . '/../header.php'; ?>
 
-<div class="menu">
-    <div class="right"><a href="/admin/news">Администрирование</a></div>
-    <div class="left"><a href="/">Главная</a> | </div>
-    <div class="left"><a href="/">О магазине</a> | </div>
-    <div class="left"><a href="/">Доставка и оплата</a> | </div>
-    <div class="left"><a href="/">Услуги</a> | </div>
-    <div class="left"><a href="/">Вопросы и ответы</a> | </div>
-    <div class="left"><a href="/news">Новости</a> | </div>
-    <div class="left"><a href="/news">Статьи</a> | </div>
-    <div class="left"><a href="/news">Контакты</a> | </div>
-</div>
-<div class="container">
-    <div class="news">
-        <h4><?php echo $this->article->header; ?></h4>
-        <div class="date"><?php echo $this->article->date; ?></div>
-        <div class="text"><?php echo $this->article->text; ?></div>
-        <div class="author">
-
-            <?php
-            if (null !== $this->article->author_id){
-                echo $this->article->author->name;
-            }
-            ?>
-
-        </div>
+<section class="container clearfix">
+    <div class="path">
+        <span>
+            <a href="/">Главная</a>
+        </span>
+        <span>
+            <?php echo $this->page->title; ?>
+        </span>
     </div>
-</div>
 
-</body>
-</html>
+    <main class="narrow left">
+        <h1><?php echo $this->item->title; ?></h1>
+        <img class="left" src="/images/<?php echo $this->item->image; ?>" width="270"/>
+        <span class="date"><?php echo $this->item->date; ?></span>
+        <?php echo $this->item->text; ?>
+    </main>
+
+    <aside class="lastItems right">
+        <h2>Другие <?php echo mb_strtolower($this->page->title); ?></h2>
+
+        <?php foreach ($this->items as $item): ?>
+
+            <article>
+                <span class="date"><?php echo $item->date; ?></span>
+                <a href="/<?php echo $this->page->name; ?>/one/?id=<?php echo $item->id; ?>"><?php echo $item->title; ?></a>
+            </article>
+
+        <?php endforeach; ?>
+
+    </aside>
+</section>
+
+<?php require __DIR__ . '/../footer.php';
