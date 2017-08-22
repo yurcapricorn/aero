@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Logger;
-use App\Models\Article;
+use App\Models\Paper;
 use App\Exceptions\NotFoundException;
 
 /*
@@ -12,26 +12,26 @@ use App\Exceptions\NotFoundException;
  *
  * @package App\Controllers
  */
-class News
+class Papers
     extends Controller
 {
     /*
      * Метод actionDefault
-     * Выводит список всех новостей
+     * Выводит список всех статей
      */
     protected function actionDefault()
     {
-        $this->view->items = Article::findAll();
+        $this->view->items = Paper::findAll();
         $this->view->display(__DIR__ . '/../../views/default/news.php');
     }
 
     /*
      * Метод actionOne
-     * Выводит одну конкретную новость
+     * Выводит одну конкретную статью
      */
     protected function actionOne()
     {
-        $news = $this->view->item = Article::findById($_GET['id']);
+        $news = $this->view->item = Paper::findById($_GET['id']);
         if (empty($news)) {
             $exc = new NotFoundException('Новость не найдена!');
             Logger::getInstance()->error($exc);

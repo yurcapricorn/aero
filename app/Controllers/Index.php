@@ -8,7 +8,7 @@ use App\Exceptions\NotFoundException;
 
 /*
  * Class News
- * Класс контроллера News
+ * Класс контроллера Index
  *
  * @package App\Controllers
  */

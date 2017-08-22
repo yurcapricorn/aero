@@ -34,26 +34,17 @@
         <aside class="lastNews right">
             <h2>Новости</h2>
             <div>
-                <article>
-                    <span class="date">28.12.2015</span>
-                    <a href="#" class="title">С Новым годом!</a>
-                    <p>С Новым годом, уважаемые клиенты!</p>
-                </article>
-                <article>
-                    <span class="date">11.01.2015</span>
-                    <a href="#" class="title">Курсы валют.</a>
-                    <p><font color="#ff0000">Курсы валют в интернет-магазине.</font></p>
-                </article>
-                <article>
-                    <span class="date">29.12.2014</span>
-                    <a href="#" class="title">Panasonic - Успей купить по старой цене!</a>
-                    <p>Акция! Снижение цен на отдельные полупромышленные модели кондиционеров Panasonic.</p>
-                </article>
-                <article>
-                    <span class="date">29.12.2013</span>
-                    <a href="#" class="title">Toshiba - Лучшая цена/качество!</a>
-                    <p>Непревзойденное качество Toshiba по привлекательной цене.</p>
-                </article>
+
+                <?php foreach ($this->news as $article): ?>
+
+                    <article>
+                        <span class="date"><?php echo $article->date; ?></span>
+                        <a href="/news/one/?id=<?php echo $article->id; ?>" class="title"><?php echo $article->title; ?></a>
+                        <p><?php echo strip_tags(mb_substr($article->text, 0, 100) . '...'); ?></p>
+                    </article>
+
+                <?php endforeach; ?>
+
             </div>
         </aside>
     </section>

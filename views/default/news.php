@@ -12,13 +12,13 @@
     <main class="wide">
         <h1>Новости</h1>
 
-        <?php foreach ($this->news as $article): ?>
+        <?php foreach ($this->items as $item): ?>
 
             <article class="clearfix">
-                <img class="left" src="/images/news/<?php echo $article->image; ?>" width="130"/>
-                <span class="date"><?php echo $article->date; ?></span>
-                <a href="/news/one/?id=<?php echo $article->id; ?>" class="title"><?php echo $article->title; ?></a>
-                <p><?php echo strip_tags(mb_substr($article->text, 0, 400) . '...'); ?></p>
+                <img class="left" src="/images/news/<?php echo $item->image; ?>" width="130"/>
+                <span class="date"><?php echo $item->date; ?></span>
+                <a href="/news/one/?id=<?php echo $item->id; ?>" class="title"><?php echo $item->title; ?></a>
+                <p><?php echo strip_tags(mb_substr($item->text, 0, 400) . '...'); ?></p>
             </article>
 
         <?php endforeach; ?>
