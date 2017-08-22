@@ -6,11 +6,11 @@
             <a href="/">Главная</a>
         </span>
         <span>
-            Новости
+            <?php echo $this->page->title; ?>
         </span>
     </div>
     <main class="wide">
-        <h1>Новости</h1>
+        <h1><?php echo $this->page->title; ?></h1>
 
         <?php foreach ($this->items as $item): ?>
 

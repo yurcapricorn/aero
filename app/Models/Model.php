@@ -95,6 +95,27 @@ abstract class Model
     }
 
     /*
+     * Находит и возвращает одну запись из БД
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public static function findByName(string $name)
+    {
+        $sql = 'SELECT * FROM ' . static::$table . ' WHERE name=:name';
+        $params = [
+            ':name' => $name
+        ];
+
+        $db = new Db();
+        $data = $db->query($sql, static::class, $params);
+        if (empty($data)){
+            return null;
+        }
+        return array_shift($data);
+    }
+
+    /*
      * Добавляет запись в БД
      *
      * @return bool

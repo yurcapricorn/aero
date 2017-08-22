@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>АэроКлимат</title>
+    <title>АэроКлимат | <?php echo $this->page->title; ?></title>
 
-    <meta name="description" content="интернет-магазин климатической техники" />
-    <meta name="keywords" content="магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели." />
+    <meta name="description" content="<?php echo $this->page->meta_d; ?>" />
+    <meta name="keywords" content="<?php echo $this->page->meta_k; ?>" />
 
     <link type="text/css" href="/css/style.css" rel="stylesheet" />
     <link type="text/css" href="/css/catalog.css" rel="stylesheet" />

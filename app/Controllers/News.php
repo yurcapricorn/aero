@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Logger;
+use App\Models\Page;
 use App\Models\Article;
 use App\Exceptions\NotFoundException;
 
@@ -22,6 +23,7 @@ class News
     protected function actionDefault()
     {
         $this->view->items = Article::findAll();
+        $this->view->page = Page::findByName('news');
         $this->view->display(__DIR__ . '/../../views/default/news.php');
     }
 
