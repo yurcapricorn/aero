@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Controller;
-
 /*
  * class Errors
  *
@@ -18,7 +16,7 @@ class Errors
     protected function action403()
     {
         header('HTTP/1.1 403 Forbidden', 403);
-        $this->view->display(__DIR__ . '/../../templates/errors/403.php');
+        $this->view->display(__DIR__ . '/../../views/errors/403.php');
         die();
     }
 
@@ -28,7 +26,7 @@ class Errors
     protected function action404()
     {
         header('HTTP/1.1 404 Not Found', 404);
-        $this->view->display(__DIR__ . '/../../templates/errors/404.php');
+        $this->view->display(__DIR__ . '/../../views/errors/404.php');
         die();
     }
 
@@ -38,7 +36,7 @@ class Errors
     protected function action500()
     {
         header('HTTP/1.1 500 Internal Server Error', 500);
-        $this->view->display(__DIR__ . '/../../templates/errors/500.php');
+        $this->view->display(__DIR__ . '/../../views/errors/500.php');
         die();
     }
 }

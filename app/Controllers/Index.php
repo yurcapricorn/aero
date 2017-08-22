@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Logger;
+use App\Models\Article;
+use App\Exceptions\NotFoundException;
+
+/*
+ * Class News
+ * Класс контроллера News
+ *
+ * @package App\Controllers
+ */
+class Index
+    extends Controller
+{
+    /*
+     * Метод actionDefault
+     * Выводит список последних новостей
+     */
+    protected function actionDefault()
+    {
+        $this->view->news = Article::findLatest(3);
+        $this->view->display(__DIR__ . '/../../views/default/index.php');
+    }
+}

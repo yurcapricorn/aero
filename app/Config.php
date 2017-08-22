@@ -18,6 +18,6 @@ class Config
 
     private function __construct()
     {
-        $this->data = require __DIR__ . '/../config.php';
+        $this->data = require __DIR__ . '/../config/config.php';
     }
 }

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Display';
+    src: url('/fonts/pfdindisplaypro-reg-webfont.eot');
+    src: url('/fonts/pfdindisplaypro-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/pfdindisplaypro-reg-webfont.woff') format('woff'),
+         url('/fonts/pfdindisplaypro-reg-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DisplayThin';
+    src: url('/fonts/pfdindisplaypro-thin-webfont.eot');
+    src: url('/fonts/pfdindisplaypro-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/pfdindisplaypro-thin-webfont.woff') format('woff'),
+         url('/fonts/pfdindisplaypro-thin-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DisplayBold';
+    src: url('/fonts/pfdindisplaypro-bold-webfont.eot');
+    src: url('/fonts/pfdindisplaypro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/pfdindisplaypro-bold-webfont.woff') format('woff'),
+         url('/fonts/pfdindisplaypro-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DisplayMedium';
+    src: url('/fonts/pfdindisplaypro-med-webfont.eot');
+    src: url('/fonts/pfdindisplaypro-med-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/pfdindisplaypro-med-webfont.woff') format('woff'),
+         url('/fonts/pfdindisplaypro-med-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

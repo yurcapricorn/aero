@@ -30,7 +30,7 @@ if ($parts[1] === 'Admin'){
 
 } else {
 
-    $controllerClass = '\\App\\Controllers\\' . (!empty($parts[1]) ? $parts[1] : 'News');
+    $controllerClass = '\\App\\Controllers\\' . (!empty($parts[1]) ? $parts[1] : 'Index');
 
     if (!class_exists($controllerClass)) {
         $controller = new Errors();

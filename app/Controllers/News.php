@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Logger;
-use App\Controller;
 use App\Models\Article;
 use App\Exceptions\NotFoundException;
 
@@ -18,22 +17,12 @@ class News
 {
     /*
      * Метод actionDefault
-     * Выводит список последних новостей
+     * Выводит список всех новостей
      */
     protected function actionDefault()
     {
-        $this->view->news = Article::findLatest(3);
-        $this->view->display(__DIR__ . '/../../templates/news/default.php');
-    }
-
-    /*
-     * Метод actionAll
-     * Выводит список всех новостей
-     */
-    protected function actionAll()
-    {
         $this->view->news = Article::findAll();
-        $this->view->display(__DIR__ . '/../../templates/news/default.php');
+        $this->view->display(__DIR__ . '/../../views/default/news.php');
     }
 
     /*
@@ -48,6 +37,6 @@ class News
             Logger::getInstance()->error($exc);
             throw $exc;
         }
-        $this->view->display(__DIR__ . '/../../templates/news/article.php');
+        $this->view->display(__DIR__ . '/../../views/default/article.php');
     }
 }

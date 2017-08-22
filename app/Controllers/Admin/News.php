@@ -2,9 +2,8 @@
 
 namespace App\Controllers\Admin;
 
-use App\AdminDataTable;
 use App\Logger;
-use App\Controller;
+use App\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Author;
 use App\Exceptions\NotFoundException;
@@ -25,7 +24,7 @@ class News
     protected function actionAll()
     {
         $this->view->news = Article::findAll();
-        $this->view->display(__DIR__ . '/../../../templates/admin/news/all.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/news.php');
     }
 
     /*
@@ -45,7 +44,7 @@ class News
             }
         }
         $this->view->authors = Author::findAll();
-        $this->view->display(__DIR__ . '/../../../templates/admin/news/editArticle.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/editArticle.php');
     }
 
     /*
