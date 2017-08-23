@@ -12,8 +12,7 @@ use App\Exceptions\NotFoundException;
  *
  * @package App\Controllers
  */
-class Company
-    extends Controller
+class Company extends Controller
 {
     /*
      * Метод actionDefault
