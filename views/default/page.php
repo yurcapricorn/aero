@@ -2,12 +2,12 @@
 
     <section class="container clearfix">
         <div class="path">
-        <span>
-            <a href="/">Главная</a>
-        </span>
-        <span>
-            <?php echo $page->title; ?>
-        </span>
+            <span>
+                <a href="/">Главная</a>
+            </span>
+            <span>
+                <?php echo $page->title; ?>
+            </span>
         </div>
         <main class="wide">
 
@@ -17,7 +17,6 @@
             </div>
 
         </main>
-
     </section>
 
 <?php require __DIR__ . '/../footer.php';

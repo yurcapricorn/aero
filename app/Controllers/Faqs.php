@@ -4,16 +4,16 @@ namespace App\Controllers;
 
 use App\Logger;
 use App\Models\Page;
+use App\Models\Faq;
 use App\Exceptions\NotFoundException;
 
 /*
- * Class Company
- * Класс контроллера Company
+ * Class Faq
+ * Класс контроллера Faq
  *
  * @package App\Controllers
  */
-class Company
-    extends Controller
+class Faqs extends Controller
 {
     /*
      * Метод actionDefault
@@ -21,7 +21,8 @@ class Company
      */
     protected function actionDefault()
     {
-        $this->view->page  = Page::findByName('company');
-        $this->view->display(__DIR__ . '/../../views/default/page.php');
+        $this->view->items = Faq::findAll();
+        $this->view->page  = Page::findByName('faqs');
+        $this->view->display(__DIR__ . '/../../views/default/faq.php');
     }
 }

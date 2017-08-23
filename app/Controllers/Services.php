@@ -8,8 +8,8 @@ use App\Models\Service;
 use App\Exceptions\NotFoundException;
 
 /*
- * Class News
- * Класс контроллера News
+ * Class Services
+ * Класс контроллера Services
  *
  * @package App\Controllers
  */

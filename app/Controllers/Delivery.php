@@ -7,12 +7,12 @@ use App\Models\Page;
 use App\Exceptions\NotFoundException;
 
 /*
- * Class Company
- * Класс контроллера Company
+ * Class Delivery
+ * Класс контроллера Delivery
  *
  * @package App\Controllers
  */
-class Company
+class Delivery
     extends Controller
 {
     /*
@@ -21,7 +21,7 @@ class Company
      */
     protected function actionDefault()
     {
-        $this->view->page  = Page::findByName('company');
+        $this->view->page  = Page::findByName('delivery');
         $this->view->display(__DIR__ . '/../../views/default/page.php');
     }
 }
