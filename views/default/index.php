@@ -35,14 +35,12 @@
             <h2>Новости</h2>
             <div>
 
-                <?php foreach ($this->news as $article): ?>
-
+                <?php foreach ($news as $article): ?>
                     <article>
                         <span class="date"><?php echo $article->date; ?></span>
-                        <a href="/news/one/?id=<?php echo $article->id; ?>" class="title"><?php echo $article->title; ?></a>
+                        <a href="/news/show/?id=<?php echo $article->id; ?>" class="title"><?php echo $article->title; ?></a>
                         <p><?php echo strip_tags(mb_substr($article->text, 0, 100) . '...'); ?></p>
                     </article>
-
                 <?php endforeach; ?>
 
             </div>
@@ -52,22 +50,24 @@
         <div class="container clearfix">
             <div class="text left">
                 <h2>О компании</h2>
-                <p>Наша компания предлагает Вам только лучшее оборудование. Мы отобрали для Вас бренды с идеальным сочетанием цены и качества от бюджетных до элитных. Мы всегда идем навстречу каждому клиенту и стараемся подстроиться под Ваши потребности и возможности.</p>
-                <p>Чтобы не ошибиться в выборе при покупке сложнобытовой техники, такой как кондиционер, нужно долго и тщательно разбираться во всех тонкостях данного вопроса, поэтому наша команда всегда рада сэкономить Ваше время, силы и нервы и предоставить бесплатную консультацию специалиста по телефону или прямо на месте.</p>
-                <p>При монтаже и обслуживании кондиционеров или любой другой техники наши монтажники используют только проверенные временем материалы и инструменты. <a href="/about"> Узнайте больше</a></p>
+
+                <?php echo $page->text; ?>
+
             </div>
             <div class="bigIcons left">
-                <div class="ico1"><b></b><a href="#">Бесплатная доставка</a><span>Бесплатная доставка. Бесплатная доставка. Бесплатная доставка. </span></div>
-                <div class="ico2"><b></b><a href="#">Сервис и ремонт</a><span>Сервис и ремонт. Сервис и ремонт. Сервис и ремонт. </span></div>
-                <div class="ico3"><b></b><a href="#">Лучший выбор</a><span>Лучший выбор. Лучший выбор. Лучший выбор. </span></div>
+                <div class="ico1"><b></b><a href="#">Бесплатная доставка</a><span><?php echo $page->text1; ?></span></div>
+                <div class="ico2"><b></b><a href="#">Сервис и ремонт</a><span><?php echo $page->text2; ?></span></div>
+                <div class="ico3"><b></b><a href="#">Лучший выбор</a><span><?php echo $page->text3; ?></span></div>
             </div>
             <div class="lastArticles right">
                 <h2>Статьи</h2>
-                <article><a href="#" class="title">Что нужно знать при покупке кондиционера</a></article>
-                <article><a href="#" class="title">Конструкция кондиционера</a></article>
-                <article><a href="#" class="title">Установка кондиционеров</a></article>
-                <article><a href="#" class="title">Монтаж кондиционера: с чего начать</a></article>
-                <article><a href="#" class="title">Основные проблемы, возникающие при эксплуатации кондиционера</a></article>
+
+                <?php foreach ($papers as $paper): ?>
+                    <article>
+                        <a href="/papers/show/?id=<?php echo $paper->id; ?>" class="title"><?php echo $paper->title; ?></a>
+                    </article>
+                <?php endforeach; ?>
+
             </div>
         </div>
     </div>

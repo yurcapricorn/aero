@@ -29,9 +29,9 @@ class View
     public function render(string $template)
     {
         ob_start();
-        //foreach ($this->data as $name => $value) {
-        //    $$name = $value;
-        //}
+        foreach ($this->data as $name => $value) {
+            $$name = $value;
+        }
         include $template;
         $content = ob_get_contents();
         ob_end_clean();

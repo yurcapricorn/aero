@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Logger;
 use App\Models\Page;
 use App\Models\Article;
+use App\Models\Paper;
 use App\Exceptions\NotFoundException;
 
 /*
@@ -22,8 +23,9 @@ class Index
      */
     protected function actionDefault()
     {
-        $this->view->news = Article::findLatest(3);
-        $this->view->page = Page::findByName('index');
+        $this->view->news   = Article::findLatest(3);
+        $this->view->papers = Paper::findLatest(5);
+        $this->view->page   = Page::findByName('index');
         $this->view->display(__DIR__ . '/../../views/default/index.php');
     }
 }

@@ -1,0 +1,56 @@
+.tbl_main {
+    width: 730px;
+    height: 20px;
+    padding:2px 0 0 0;
+    border-top:1px solid #606060;
+    text-align: center;
+    font-weight: bold;
+}
+.tbl_name {
+    width: 530px;
+    height: 20px;
+    padding: 0 30px 0 0;
+    border-top: 1px solid #606060;
+    text-align: left;
+}
+.tbl_price {
+    width: 200px;
+    height: 20px;
+    border-top:1px solid #606060;
+    text-align: center;
+    vertical-align: middle;
+}
+.calc {
+    width: 700px;
+    margin:0;
+    padding:0;
+    border-collapse:collapse;
+}
+.calc0 {
+    width: 350px;
+    height: 50px;
+    border-top:1px solid #476171;
+    font:13px Tahoma, Arial, Geneva, sans-serif;
+    font-weight: bold;
+}
+.calc1 {
+    width: 250px;
+    height: 50px;
+    border-top:1px solid #476171;
+    font:13px Tahoma, Arial, Geneva, sans-serif;
+}
+.calc2 {
+    width: 100px;
+    height: 50px;
+    border-top:1px solid #476171;
+}
+.calc3 {
+    width: 250px;
+    height: 100px;
+    border-top:1px solid #476171;
+    vertical-align: middle;
+}
+.calc4 {
+}
+.calc5 {
+}

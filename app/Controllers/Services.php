@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Logger;
 use App\Models\Page;
-use App\Models\Article;
+use App\Models\Service;
 use App\Exceptions\NotFoundException;
 
 /*
@@ -13,7 +13,7 @@ use App\Exceptions\NotFoundException;
  *
  * @package App\Controllers
  */
-class News
+class Services
     extends Controller
 {
     /*
@@ -22,8 +22,8 @@ class News
      */
     protected function actionDefault()
     {
-        $this->view->items = Article::findAll();
-        $this->view->page  = Page::findByName('news');
+        $this->view->items = Service::findAll();
+        $this->view->page  = Page::findByName('services');
         $this->view->display(__DIR__ . '/../../views/default/news.php');
     }
 
@@ -33,12 +33,12 @@ class News
      */
     protected function actionShow()
     {
-        $this->view->item  = Article::findById($_GET['id']);
-        $this->view->items = Article::findLatest(5);
-        $this->view->page  = Page::findByName('news');
+        $this->view->item  = Service::findById($_GET['id']);
+        $this->view->items = Service::findLatest(5);
+        $this->view->page  = Page::findByName('services');
 
         if (empty($this->view->item)) {
-            $exc = new NotFoundException('Новость не найдена!');
+            $exc = new NotFoundException('Услуга не найдена!');
             Logger::getInstance()->error($exc);
             throw $exc;
         }

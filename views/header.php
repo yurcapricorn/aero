@@ -11,6 +11,7 @@
     <link type="text/css" href="/css/catalog.css" rel="stylesheet" />
     <link type="text/css" href="/css/jcarousel.css" rel="stylesheet" />
     <link type="text/css" href="/css/tabs.css" rel="stylesheet" />
+    <link type="text/css" href="/css/calc.css" rel="stylesheet" />
 
     <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
