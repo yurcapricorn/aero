@@ -23,6 +23,12 @@
 .bold {
 	font-weight: bold;
 }
+.italic {
+	font-style: italic;
+}
+.center {
+	text-align: center;
+}
 body {
 	background: #ffffff url(/images/bg.jpg) repeat-x 0 42px;
 }

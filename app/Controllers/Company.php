@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Logger;
-use App\Models\Article;
+use App\Models\Page;
 use App\Exceptions\NotFoundException;
 
 /*
@@ -21,22 +21,7 @@ class Company
      */
     protected function actionDefault()
     {
-        $this->view->news = Article::findAll();
-        $this->view->display(__DIR__ . '/../../views/default/news.php');
-    }
-
-    /*
-     * Метод actionOne
-     * Выводит одну конкретную новость
-     */
-    protected function actionOne()
-    {
-        $news = $this->view->article = Article::findById($_GET['id']);
-        if (empty($news)) {
-            $exc = new NotFoundException('Новость не найдена!');
-            Logger::getInstance()->error($exc);
-            throw $exc;
-        }
-        $this->view->display(__DIR__ . '/../../views/default/article.php');
+        $this->view->page  = Page::findByName('company');
+        $this->view->display(__DIR__ . '/../../views/default/page.php');
     }
 }
