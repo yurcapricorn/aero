@@ -1,2 +1,1 @@
-# fucking sucking maffin aero
-тест
+# aero
