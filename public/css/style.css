@@ -203,20 +203,7 @@ main.narrow .auth input[type="checkbox"] {
 main.narrow .auth input[type="submit"] {
 	width: 220px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/* Лого */
+/* Лого */
 header {
 	padding-top: 25px;
 }
@@ -664,6 +651,9 @@ aside.lastNews article p {
 }
 .path span:after {
 	content: " / ";
+}
+.path span:last-child::after {
+	content: "";
 }
 /* Основное поле */
 section main.narrow {

@@ -300,9 +300,13 @@ section main.products {
 	vertical-align: middle;
 	border: 1px solid #d0d6db;
 	background: #fff;
+	outline: 1px solid red;
 }
 .products article a img {
+	width: 110px;
+	height: 120px;
 	padding: 10px;
+	outline: 1px solid green;
 }
 .products article a.title {
 	display: block;
@@ -453,6 +457,10 @@ aside div.watch article .img {
 	border: 1px solid #d0d6db;
 	background: #ffffff;
 }
+aside div.watch article img {
+	width: 130px;
+	height: 140px;
+}
 aside div.watch article .title {
 	font: 16px/20px "Display";
 }
@@ -477,6 +485,10 @@ main.product .productItem {
 	width: 290px;
 	height: 290px;
 	outline: 1px solid #d0d6db;
+}
+.productItem .box div img {
+	width: 290px;
+	height: 290px;
 }
 .productItem .box div.img:hover {
 	outline: 2px solid #b8ce00;

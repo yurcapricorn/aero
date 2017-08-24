@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>АэроКлимат | <?php echo $this->page->title; ?></title>
+    <title><?php echo $this->page->title; ?> | АэроКлимат</title>
 
     <meta name="description" content="<?php echo $this->page->meta_d; ?>" />
     <meta name="keywords" content="<?php echo $this->page->meta_k; ?>" />

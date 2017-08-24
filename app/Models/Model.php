@@ -27,6 +27,23 @@ abstract class Model
      */
     public static function findAll()
     {
+        $sql = 'SELECT * FROM ' . static::$table . ' ORDER BY id';
+
+        $db = new Db();
+        $data = $db->query($sql, static::class);
+        if (empty($data)){
+            return false;
+        }
+        return $data;
+    }
+
+    /*
+     * Находит и возвращает все записи из БД в обратном порядке
+     *
+     * @return mixed
+     */
+    public static function findAllLast()
+    {
         $sql = 'SELECT * FROM ' . static::$table . ' ORDER BY id DESC';
 
         $db = new Db();
