@@ -36,24 +36,4 @@
     </main>
 </section>
 
-<?php require __DIR__ . '/../footer.php'; ?>
-
-
-<!--
-    <a href="/admin/news/edit" class="new block">Создать статью</a>
-
-<?php foreach ($this->news as $article): ?>
-
-        <div class="news">
-            <div><a href="" class="delete right"></a></div>
-            <div><a href="" class="update right"></a></div>
-            <div><a href="/admin/news/edit" class="add right"></a></div>
-
-            <h4><a href="/admin/news/one/?id=<?php echo $article->id; ?>"><?php echo $article->header; ?></a></h4>
-            <div class="text">
-                <?php echo strip_tags(mb_substr($article->text, 0, 400) . '...'); ?>
-            </div>
-        </div>
-
-    <?php endforeach; ?>
--->
+<?php require __DIR__ . '/../footer.php';
