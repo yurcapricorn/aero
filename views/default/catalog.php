@@ -48,15 +48,8 @@
                 <div class="compareList right active"><a href="#" class="show_comparator">Список сравнения</a></div>
             </div>
 
-            <?php foreach ($items as $key => $item) :
-                ++$key;
-                if ($key%4 === 0) :
-            ?>
-                    <article class="last">
-                <?php else : ?>
-                    <article>
-                <?php endif; ?>
-
+            <?php foreach ($items as $key => $item) : ?>
+                <article<?php if ( ++$key%4 === 0 ) : ?> class="last" <?php endif; ?>>
                     <label><input type="checkbox">Сравнить</label>
                     <a href="/<?php echo $page->name; ?>/show/?id=<?php echo $item->id; ?>" class="img">
                         <div>
