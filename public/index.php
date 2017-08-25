@@ -19,14 +19,14 @@ foreach ($parts as $key => $part){
 // Формируем имя контроллера и action
 if ($parts[1] === 'Admin'){
 
-    $controllerClass = '\\App\\Controllers\\Admin\\' . (!empty($parts[2]) ? $parts[2] : 'News');
+    $controllerClass = '\\App\\Controllers\\Admin\\' . (!empty($parts[2]) ? $parts[2] : 'Index');
 
     if (!class_exists($controllerClass)) {
         $controller = new Errors();
         $controller->action('403');
     }
 
-    $actionName = (!empty($parts[3]) ? $parts[3] : 'All');
+    $actionName = (!empty($parts[3]) ? $parts[3] : 'Default');
 
 } else {
 

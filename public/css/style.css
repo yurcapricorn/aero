@@ -62,11 +62,16 @@ h2 {
 	font: 21px "DisplayMedium";
 	color: #333;
 }
+h3 {
+	font: 19px "DisplayMedium";
+	color: #333;
+}
 input,
 select {
 	vertical-align: middle;
 }
-input {
+input,
+main .panel textarea {
     border: 1px solid #d3d9dd;
 	border-radius: 2px;
 	background: #fefefe;
@@ -840,7 +845,36 @@ main form.feedback textarea {
 	height: 100px;
 	resize: none;
 }
-/* Подвал */
+/* Панель */
+main .panel {
+
+}
+main .panel h3 {
+	margin-bottom: 20px;
+}
+main .panel form {
+	font: italic 16px "Display";
+	color: #333;
+}
+main .panel input,
+main .panel textarea {
+	width: 900px;
+	margin-bottom: 10px;
+}
+main .panel input {
+	height: 28px;
+}
+main .panel input[type="submit"] {
+	width: 200px;
+	height: 35px;
+}
+main .panel textarea {
+	height: 400px;
+}
+main .panel textarea.small {
+	height: 50px;
+}
+	/* Подвал */
 footer {
 	padding-top: 20px;
 	padding-bottom: 5px;
