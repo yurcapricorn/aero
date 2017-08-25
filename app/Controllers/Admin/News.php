@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Logger;
+use App\Models\Page;
 use App\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Author;
@@ -14,16 +15,16 @@ use App\Exceptions\NotFoundException;
  *
  * @package App\Controllers\Admin
  */
-class News
-    extends Controller
+class News extends Controller
 {
     /*
      * Метод actionAll
      * Выводит список всех новостей
      */
-    protected function actionAll()
+    protected function actionDefault()
     {
-        $this->view->news = Article::findAll();
+        $this->view->items = Article::findAll();
+        $this->view->page  = Page::findByName('news');
         $this->view->display(__DIR__ . '/../../../views/admin/news.php');
     }
 
@@ -43,8 +44,9 @@ class News
                 throw $exc;
             }
         }
+        $this->view->page  = Page::findByName('news');
         $this->view->authors = Author::findAll();
-        $this->view->display(__DIR__ . '/../../../views/admin/editArticle.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/article.php');
     }
 
     /*

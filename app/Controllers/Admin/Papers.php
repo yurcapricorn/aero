@@ -5,24 +5,27 @@ namespace App\Controllers\Admin;
 use App\Logger;
 use App\Models\Page;
 use App\Controllers\Controller;
+use App\Models\Paper;
+use App\Models\Author;
 use App\Exceptions\NotFoundException;
 
 /*
- * Class Company
- * Класс контроллера Company
+ * Class Admin\News
+ * Класс контроллера админ-панели News
  *
- * @package App\Controllers
+ * @package App\Controllers\Admin
  */
-class Company extends Controller
+class Papers extends Controller
 {
     /*
-     * Метод actionDefault
+     * Метод actionAll
      * Выводит список всех новостей
      */
     protected function actionDefault()
     {
-        $this->view->page  = Page::findByName('company');
-        $this->view->display(__DIR__ . '/../../../views/admin/page.php');
+        $this->view->items = Paper::findAll();
+        $this->view->page  = Page::findByName('papers');
+        $this->view->display(__DIR__ . '/../../../views/admin/news.php');
     }
 
     /*
@@ -33,7 +36,7 @@ class Company extends Controller
     {
         if (!empty($_GET['id'])) {
             $id = (int)$_GET['id'];
-            $this->view->article = Article::findById($id);
+            $this->view->article = Paper::findById($id);
 
             if (empty($this->view->article)) {
                 $exc = new NotFoundException('Новость не найдена!');
@@ -41,6 +44,7 @@ class Company extends Controller
                 throw $exc;
             }
         }
+        $this->view->page  = Page::findByName('news');
         $this->view->authors = Author::findAll();
         $this->view->display(__DIR__ . '/../../../views/admin/article.php');
     }
@@ -72,7 +76,7 @@ class Company extends Controller
             }
 
             if (true === $article->save()) {
-                header('Location: /admin');
+                header('Location: /admin/news/');
                 die();
             }
         }
@@ -92,7 +96,7 @@ class Company extends Controller
         }
 
         if (true === $this->view->article->delete()) {
-            header('Location: /admin');
+            header('Location: /admin/news');
             die();
         }
     }

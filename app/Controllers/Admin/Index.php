@@ -44,7 +44,7 @@ class Index extends Controller
             }
         }
         $this->view->authors = Author::findAll();
-        $this->view->display(__DIR__ . '/../../../views/admin/editArticle.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/article.php');
     }
 
     /*

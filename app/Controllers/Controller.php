@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Logger;
 use App\Views\View;
 use App\Exceptions\NotFoundException;
 

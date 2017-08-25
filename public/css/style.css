@@ -874,6 +874,15 @@ main .panel textarea {
 main .panel textarea.small {
 	height: 50px;
 }
+main .add,
+main .action {
+	display: block;
+	font: 18px "Display";
+	color: #333;
+}
+main .action {
+	margin: 15px 0 30px 30px;
+}
 	/* Подвал */
 footer {
 	padding-top: 20px;
