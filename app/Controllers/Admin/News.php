@@ -36,9 +36,9 @@ class News extends Controller
     {
         if (!empty($_GET['id'])) {
             $id = (int)$_GET['id'];
-            $this->view->article = Article::findById($id);
+            $this->view->item = Article::findById($id);
 
-            if (empty($this->view->article)) {
+            if (empty($this->view->item)) {
                 $exc = new NotFoundException('Новость не найдена!');
                 Logger::getInstance()->error($exc);
                 throw $exc;

@@ -22,14 +22,11 @@
                 <a href="/admin/<?php echo $page->name; ?>/edit/?id=<?php echo $item->id; ?>">Редактировать</a> |
                 <a href="/admin/<?php echo $page->name; ?>/delete/?id=<?php echo $item->id; ?>">Удалить</a>
             </div>
-            <article class="clearfix">
-
-                <img class="left" src="/images/<?php echo $page->name; ?>/<?php echo $item->image; ?>" width="130"/>
-                <span class="date"><?php echo $item->date; ?></span>
-                <a href="/admin/<?php echo $page->name; ?>/edit/?id=<?php echo $item->id; ?>" class="title">
-                    <?php echo $item->title; ?>
+            <article>
+                <a href="/admin/<?php echo $page->name; ?>/edit/?id=<?php echo $item->id; ?>">
+                    <h2><?php echo $item->question; ?></h2>
                 </a>
-                <p><?php echo strip_tags(mb_substr($item->text, 0, 400) . '...'); ?></p>
+                <p><?php if (!empty($item->answer)) { echo $item->answer; } ?></p>
             </article>
         <?php endforeach; ?>
 

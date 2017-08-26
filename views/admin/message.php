@@ -9,22 +9,18 @@
                 <a href="/admin/<?php echo $page->name; ?>"><?php echo $page->title; ?></a>
             </span>
             <span>
-                <?php echo $item->title; ?> - Редактирование
+                <?php echo $item->question; ?> - Редактирование
             </span>
         </div>
         <main class="wide">
 
-            <h1><?php echo $item->title; ?></h1>
+            <h1><?php echo $item->question; ?></h1>
             <div class="panel">
                 <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
-                    Заголовок:
-                    <input type="text" name="header" value="<?php echo $item->title; ?>" required>
-                    Дата:
-                    <input type="text" name="header" value="<?php echo $item->date; ?>" required>
-                    Изображение:
-                    <input type="text" name="header" value="<?php echo $item->image; ?>" required>
-                    Текст:
-                    <textarea name="text" required><?php echo $item->text; ?></textarea>
+                    Вопрос:
+                    <textarea name="question" class="small" required><?php echo $item->question; ?></textarea>
+                    Ответ:
+                    <textarea name="answer" class="small" required><?php if (!empty($item->answer)) { echo $item->answer; } ?></textarea>
 
                     <input type="submit" value="Отправить">
                 </form>

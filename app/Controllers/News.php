@@ -21,7 +21,7 @@ class News extends Controller
      */
     protected function actionDefault()
     {
-        $this->view->items = Article::findAll();
+        $this->view->items = Article::findAllLast();
         $this->view->page  = Page::findByName('news');
         $this->view->display(__DIR__ . '/../../views/default/news.php');
     }

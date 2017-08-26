@@ -13,7 +13,7 @@
 
             <h1><?php echo $page->title; ?></h1>
             <div class="panel">
-                <form action="/admin/news/save" method="post" class="panel">
+                <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
                     Заголовок:
                     <input type="text" name="header" value="<?php echo $page->title; ?>" required>
                     Заголовок meta description:
@@ -24,7 +24,11 @@
                     <textarea name="text" required><?php echo $page->text; ?></textarea>
 
                     <?php if (!empty($page->text1)) : ?>
-                        Бесплатная доставка:
+                        <?php if ($page->name === 'index') : ?>
+                            Бесплатная доставка
+                        <?php elseif ($page->name === 'contacts') : ?>
+                            Карта:
+                        <?php endif; ?>
                         <textarea name="text1" class="small" required><?php echo $page->text1; ?></textarea>
                     <?php endif; ?>
 

@@ -5,7 +5,7 @@ namespace App\Controllers\Admin;
 use App\Logger;
 use App\Models\Page;
 use App\Controllers\Controller;
-use App\Models\Paper;
+use App\Models\Service;
 use App\Models\Author;
 use App\Exceptions\NotFoundException;
 
@@ -15,7 +15,7 @@ use App\Exceptions\NotFoundException;
  *
  * @package App\Controllers\Admin
  */
-class Papers extends Controller
+class Services extends Controller
 {
     /*
      * Метод actionAll
@@ -23,8 +23,8 @@ class Papers extends Controller
      */
     protected function actionDefault()
     {
-        $this->view->items = Paper::findAll();
-        $this->view->page  = Page::findByName('papers');
+        $this->view->items = Service::findAll();
+        $this->view->page  = Page::findByName('services');
         $this->view->display(__DIR__ . '/../../../views/admin/news.php');
     }
 
@@ -36,15 +36,15 @@ class Papers extends Controller
     {
         if (!empty($_GET['id'])) {
             $id = (int)$_GET['id'];
-            $this->view->item = Paper::findById($id);
+            $this->view->item = Service::findById($id);
 
             if (empty($this->view->item)) {
-                $exc = new NotFoundException('Новость не найдена!');
+                $exc = new NotFoundException('Услуга не найдена!');
                 Logger::getInstance()->error($exc);
                 throw $exc;
             }
         }
-        $this->view->page  = Page::findByName('papers');
+        $this->view->page  = Page::findByName('services');
         $this->view->authors = Author::findAll();
         $this->view->display(__DIR__ . '/../../../views/admin/article.php');
     }

@@ -3,19 +3,19 @@
 namespace App\Controllers\Admin;
 
 use App\Logger;
-use App\Models\Page;
 use App\Controllers\Controller;
-use App\Models\Paper;
+use App\Models\Page;
+use App\Models\Article;
 use App\Models\Author;
 use App\Exceptions\NotFoundException;
 
 /*
- * Class Admin\News
- * Класс контроллера админ-панели News
+ * Class Admin\Contacts
+ * Класс контроллера админ-панели Contacts
  *
  * @package App\Controllers\Admin
  */
-class Papers extends Controller
+class Contacts extends Controller
 {
     /*
      * Метод actionAll
@@ -23,9 +23,8 @@ class Papers extends Controller
      */
     protected function actionDefault()
     {
-        $this->view->items = Paper::findAll();
-        $this->view->page  = Page::findByName('papers');
-        $this->view->display(__DIR__ . '/../../../views/admin/news.php');
+        $this->view->page  = Page::findByName('contacts');
+        $this->view->display(__DIR__ . '/../../../views/admin/page.php');
     }
 
     /*
@@ -36,15 +35,14 @@ class Papers extends Controller
     {
         if (!empty($_GET['id'])) {
             $id = (int)$_GET['id'];
-            $this->view->item = Paper::findById($id);
+            $this->view->article = Article::findById($id);
 
-            if (empty($this->view->item)) {
+            if (empty($this->view->article)) {
                 $exc = new NotFoundException('Новость не найдена!');
                 Logger::getInstance()->error($exc);
                 throw $exc;
             }
         }
-        $this->view->page  = Page::findByName('papers');
         $this->view->authors = Author::findAll();
         $this->view->display(__DIR__ . '/../../../views/admin/article.php');
     }
@@ -76,7 +74,7 @@ class Papers extends Controller
             }
 
             if (true === $article->save()) {
-                header('Location: /admin/news/');
+                header('Location: /admin');
                 die();
             }
         }
@@ -96,7 +94,7 @@ class Papers extends Controller
         }
 
         if (true === $this->view->article->delete()) {
-            header('Location: /admin/news');
+            header('Location: /admin');
             die();
         }
     }

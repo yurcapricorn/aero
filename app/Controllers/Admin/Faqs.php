@@ -5,17 +5,17 @@ namespace App\Controllers\Admin;
 use App\Logger;
 use App\Models\Page;
 use App\Controllers\Controller;
-use App\Models\Paper;
+use App\Models\Faq;
 use App\Models\Author;
 use App\Exceptions\NotFoundException;
 
 /*
- * Class Admin\News
- * Класс контроллера админ-панели News
+ * Class Admin\Faqs
+ * Класс контроллера админ-панели Faqs
  *
  * @package App\Controllers\Admin
  */
-class Papers extends Controller
+class Faqs extends Controller
 {
     /*
      * Метод actionAll
@@ -23,9 +23,9 @@ class Papers extends Controller
      */
     protected function actionDefault()
     {
-        $this->view->items = Paper::findAll();
-        $this->view->page  = Page::findByName('papers');
-        $this->view->display(__DIR__ . '/../../../views/admin/news.php');
+        $this->view->items = Faq::findAll();
+        $this->view->page  = Page::findByName('faqs');
+        $this->view->display(__DIR__ . '/../../../views/admin/messages.php');
     }
 
     /*
@@ -36,7 +36,7 @@ class Papers extends Controller
     {
         if (!empty($_GET['id'])) {
             $id = (int)$_GET['id'];
-            $this->view->item = Paper::findById($id);
+            $this->view->item = Faq::findById($id);
 
             if (empty($this->view->item)) {
                 $exc = new NotFoundException('Новость не найдена!');
@@ -44,9 +44,9 @@ class Papers extends Controller
                 throw $exc;
             }
         }
-        $this->view->page  = Page::findByName('papers');
+        $this->view->page  = Page::findByName('faqs');
         $this->view->authors = Author::findAll();
-        $this->view->display(__DIR__ . '/../../../views/admin/article.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/message.php');
     }
 
     /*

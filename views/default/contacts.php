@@ -14,13 +14,8 @@
             <h1><?php echo $page->title; ?></h1>
 
             <div class="contacts left">
-                <p><span>ИП Медянцев А. В.</span>ИНН 032612658649<br>ОГРНИП 313032717700095</p>
 
-                <p><span>Адрес:</span>Новосибирск, ул. Весенняя, д. 12а</p>
-
-                <p><span>Телефоны: </span>8 (383) 381-93-86</p>
-
-                <p><span>Email: </span><a href="mailto:mail@aero-nsk.ru" >mail@aero-nsk.ru</a></p>
+                <?php echo $page->text; ?>
 
                 <p><span>Написать нам:</span></p>
 
@@ -43,7 +38,7 @@
                 </form>
             </div>
             <div class="map right">
-                <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=Y95RTXo3KAGx-U3whEzguy9atiswZEu5&width=450&height=350"></script>
+                <?php echo $page->text1; ?>
             </div>
 
         </main>

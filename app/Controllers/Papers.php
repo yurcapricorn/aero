@@ -22,7 +22,7 @@ class Papers
      */
     protected function actionDefault()
     {
-        $this->view->items = Paper::findAll();
+        $this->view->items = Paper::findAllLast();
         $this->view->page  = Page::findByName('papers');
         $this->view->display(__DIR__ . '/../../views/default/news.php');
     }
