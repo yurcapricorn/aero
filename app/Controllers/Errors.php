@@ -39,8 +39,7 @@ class Errors extends Controller
     protected function action500()
     {
         header('HTTP/1.1 500 Internal Server Error', 500);
-        $this->view->page  = Page::findByName('error500');
-        $this->view->display(__DIR__ . '/../../views/errors/error.php');
+        $this->view->display(__DIR__ . '/../../views/errors/error500.php');
         die();
     }
 }

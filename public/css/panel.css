@@ -71,7 +71,8 @@ select {
 	vertical-align: middle;
 }
 input,
-main .panel textarea {
+main .panel textarea,
+main .panel select {
     border: 1px solid #d3d9dd;
 	border-radius: 2px;
 	background: #fefefe;
@@ -326,7 +327,12 @@ main .panel textarea {
 	width: 900px;
 	margin-bottom: 10px;
 }
-main .panel input {
+main .panel select {
+	width: 920px;
+	margin-bottom: 10px;
+}
+main .panel input,
+main .panel select {
 	height: 28px;
 }
 main .panel input[type="submit"] {
