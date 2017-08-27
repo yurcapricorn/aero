@@ -356,10 +356,11 @@ main .action {
 }
 main .panel .upload {
 	margin: 10px 0;
-	//outline: 1px solid #ccc;
+	font: italic 16px "Display";
+	color: #333;
 }
 main .panel .upload input {
-	width: 700px;
+	width: 740px;
 }
 main .panel .upload input[type="file"] {
 	border: none;
