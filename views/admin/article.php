@@ -22,7 +22,7 @@
                     <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
 
                     <form action="/admin" method="post" enctype="multipart/form-data">
-                        <input type="file" name="userFile">
+                        <input type="file" name="image">
                         <input type="submit" value="Загрузить">
                     </form>
                 </div>
