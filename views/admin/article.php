@@ -27,9 +27,9 @@
                     <select name="author_id">
                         <option value=""></option>
 
-                        <?php foreach ($this->authors as $author): ?>
+                        <?php foreach ($this->authors as $author) : ?>
 
-                            <option value="<?php echo $author->id; ?>" <?php if (!empty($this->article->author_id) && $author->id == $this->article->author_id){?> selected<?php } ?>>
+                            <option value="<?php echo $author->id; ?>" <?php if (!empty($item->author_id) && $author->id == $item->author_id){?> selected<?php } ?>>
                                 <?php echo $author->name; ?>
                             </option>
 
