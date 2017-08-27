@@ -32,7 +32,7 @@
                     Заголовок:
                     <input type="text" name="title" value="<?php echo $item->title; ?>" required>
                     Дата:
-                    <input type="text" name="date" value="<?php echo $item->date; ?>" required>
+                    <input type="date" name="date" value="<?php echo $item->date; ?>" required>
                     Автор:
                     <select name="author_id">
                         <option value=""></option>
