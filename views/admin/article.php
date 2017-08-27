@@ -16,6 +16,16 @@
 
             <h1><?php echo $item->title; ?></h1>
             <div class="panel">
+                <div class="upload clearfix">
+                    <img class="left" src="<?php if (!empty($item->image)) { ?>/images/<?php echo $page->name; ?>/<?php echo $item->image; } else { ?>/images/noImage.png<?php } ?>" width="130"/>
+                    Изображение:
+                    <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
+
+                    <form action="/admin" method="post" enctype="multipart/form-data">
+                        <input type="file" name="userFile">
+                        <input type="submit" value="Загрузить">
+                    </form>
+                </div>
                 <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
                     Id:
                     <input type="text" name="id" value="<?php echo $item->id; ?>" readonly>
@@ -34,17 +44,6 @@
                         <?php endforeach; ?>
 
                     </select>
-
-                    <div class="upload clearfix">
-                        <img class="left" src="<?php if (!empty($item->image)) { ?>/images/<?php echo $page->name; ?>/<?php echo $item->image; } else { ?>/images/noImage.png<?php } ?>" width="130"/>
-                        Изображение:
-                        <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
-
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <input type="file" name="userFile">
-                            <input type="submit" value="Загрузить">
-                        </form>
-                    </div>
                     Текст:
                     <textarea name="text" required><?php echo $item->text; ?></textarea>
 
