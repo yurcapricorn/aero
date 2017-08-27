@@ -18,26 +18,33 @@
             <div class="panel">
                 <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
                     Id:
-                    <input type="text" name="header" value="<?php echo $item->id; ?>" readonly>
+                    <input type="text" name="id" value="<?php echo $item->id; ?>" readonly>
                     Заголовок:
-                    <input type="text" name="header" value="<?php echo $item->title; ?>" required>
+                    <input type="text" name="title" value="<?php echo $item->title; ?>" required>
                     Дата:
-                    <input type="text" name="header" value="<?php echo $item->date; ?>" required>
+                    <input type="text" name="date" value="<?php echo $item->date; ?>" required>
                     Автор:
                     <select name="author_id">
                         <option value=""></option>
 
                         <?php foreach ($this->authors as $author) : ?>
-
-                            <option value="<?php echo $author->id; ?>" <?php if (!empty($item->author_id) && $author->id == $item->author_id){?> selected<?php } ?>>
+                            <option value="<?php echo $author->id; ?>" <?php if (!empty($item->author_id) && $author->id === $item->author_id){?> selected<?php } ?>>
                                 <?php echo $author->name; ?>
                             </option>
-
                         <?php endforeach; ?>
 
                     </select>
-                    Изображение:
-                    <input type="text" name="header" value="<?php echo $item->image; ?>" required>
+
+                    <div class="upload clearfix">
+                        <img class="left" src="<?php if (!empty($item->image)) { ?>/images/<?php echo $page->name; ?>/<?php echo $item->image; } else { ?>/images/noImage.png<?php } ?>" width="130"/>
+                        Изображение:
+                        <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
+
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <input type="file" name="userFile">
+                            <input type="submit" value="Загрузить">
+                        </form>
+                    </div>
                     Текст:
                     <textarea name="text" required><?php echo $item->text; ?></textarea>
 

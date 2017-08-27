@@ -17,6 +17,7 @@
             <h1><?php echo $item->question; ?></h1>
             <div class="panel">
                 <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
+                    <input type="hidden" name="id" value="<?php echo $item->id; ?>">
                     Вопрос:
                     <textarea name="question" class="small" required><?php echo $item->question; ?></textarea>
                     Ответ:

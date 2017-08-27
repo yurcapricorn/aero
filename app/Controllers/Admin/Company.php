@@ -26,74 +26,19 @@ class Company extends Controller
     }
 
     /*
-     * Метод actionEdit
-     * Выводит форму редактирования статьи
-     */
-    protected function actionEdit()
-    {
-        if (!empty($_GET['id'])) {
-            $id = (int)$_GET['id'];
-            $this->view->article = Article::findById($id);
-
-            if (empty($this->view->article)) {
-                $exc = new NotFoundException('Новость не найдена!');
-                Logger::getInstance()->error($exc);
-                throw $exc;
-            }
-        }
-        $this->view->authors = Author::findAll();
-        $this->view->display(__DIR__ . '/../../../views/admin/article.php');
-    }
-
-    /*
      * Метод actionSave
      * Сохраняет статью в БД
      */
     protected function actionSave()
     {
-        if (!empty($_POST['header']) && !empty($_POST['text'])){
-            if (!empty($_POST['id'])) {
-                $article = Article::findById((int)$_POST['id']);
+        if (!empty($_POST['title']) && !empty($_POST['meta_d']) && !empty($_POST['meta_k']) && !empty($_POST['text'])) {
+            $item = Page::findByName('company');
+            $item->fill($_POST);
 
-                if (empty($article)) {
-                    $exc = new NotFoundException('Новость не найдена!');
-                    Logger::getInstance()->error($exc);
-                    throw $exc;
-                }
-
-            } else {
-                $article = new Article();
-            }
-
-            $article->fill($_POST);
-
-            if (empty($_POST['author_id'])){
-                $article->author_id = null;
-            }
-
-            if (true === $article->save()) {
-                header('Location: /admin');
+            if (true === $item->save()) {
+                header('Location: /admin/company');
                 die();
             }
-        }
-    }
-
-    /*
-     * Метод actionDelete
-     * Удаляет новость из БД
-     */
-    protected function actionDelete()
-    {
-        $this->view->article = Article::findById($_GET['id'] ?? null);
-        if (empty($this->view->article)) {
-            $exc = new NotFoundException('Новость не найдена!');
-            Logger::getInstance()->error($exc);
-            throw $exc;
-        }
-
-        if (true === $this->view->article->delete()) {
-            header('Location: /admin');
-            die();
         }
     }
 }

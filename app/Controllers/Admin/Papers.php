@@ -55,28 +55,28 @@ class Papers extends Controller
      */
     protected function actionSave()
     {
-        if (!empty($_POST['header']) && !empty($_POST['text'])){
+        if (!empty($_POST['title']) && !empty($_POST['text'])) {
             if (!empty($_POST['id'])) {
-                $article = Article::findById((int)$_POST['id']);
+                $item = Paper::findById((int)$_POST['id']);
 
-                if (empty($article)) {
+                if (empty($item)) {
                     $exc = new NotFoundException('Новость не найдена!');
                     Logger::getInstance()->error($exc);
                     throw $exc;
                 }
 
             } else {
-                $article = new Article();
+                $item = new Paper();
             }
 
-            $article->fill($_POST);
+            $item->fill($_POST);
 
-            if (empty($_POST['author_id'])){
-                $article->author_id = null;
+            if (empty($_POST['author_id'])) {
+                $item->author_id = null;
             }
 
-            if (true === $article->save()) {
-                header('Location: /admin/news/');
+            if (true === $item->save()) {
+                header('Location: /admin/papers');
                 die();
             }
         }

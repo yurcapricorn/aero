@@ -15,11 +15,11 @@
             <div class="panel">
                 <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
                     Заголовок:
-                    <input type="text" name="header" value="<?php echo $page->title; ?>" required>
+                    <input type="text" name="title" value="<?php echo $page->title; ?>" required>
                     Заголовок meta description:
-                    <input type="text" name="header" value="<?php echo $page->meta_d; ?>" required>
+                    <input type="text" name="meta_d" value="<?php echo $page->meta_d; ?>" required>
                     Заголовок meta keywords:
-                    <input type="text" name="header" value="<?php echo $page->meta_k; ?>" required>
+                    <input type="text" name="meta_k" value="<?php echo $page->meta_k; ?>" required>
                     Текст:
                     <textarea name="text" required><?php echo $page->text; ?></textarea>
 

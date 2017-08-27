@@ -45,7 +45,6 @@ class Faqs extends Controller
             }
         }
         $this->view->page  = Page::findByName('faqs');
-        $this->view->authors = Author::findAll();
         $this->view->display(__DIR__ . '/../../../views/admin/message.php');
     }
 
@@ -55,28 +54,24 @@ class Faqs extends Controller
      */
     protected function actionSave()
     {
-        if (!empty($_POST['header']) && !empty($_POST['text'])){
+        if (!empty($_POST['question'])) {
             if (!empty($_POST['id'])) {
-                $article = Article::findById((int)$_POST['id']);
+                $item = Faq::findById((int)$_POST['id']);
 
-                if (empty($article)) {
+                if (empty($item)) {
                     $exc = new NotFoundException('Новость не найдена!');
                     Logger::getInstance()->error($exc);
                     throw $exc;
                 }
 
             } else {
-                $article = new Article();
+                $item = new Faq();
             }
 
-            $article->fill($_POST);
+            $item->fill($_POST);
 
-            if (empty($_POST['author_id'])){
-                $article->author_id = null;
-            }
-
-            if (true === $article->save()) {
-                header('Location: /admin/news/');
+            if (true === $item->save()) {
+                header('Location: /admin/faqs');
                 die();
             }
         }

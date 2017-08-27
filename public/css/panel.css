@@ -354,6 +354,21 @@ main .action {
 main .action {
 	margin: 15px 0 30px 30px;
 }
+main .panel .upload {
+	margin: 10px 0;
+	//outline: 1px solid #ccc;
+}
+main .panel .upload input {
+	width: 700px;
+}
+main .panel .upload input[type="file"] {
+	border: none;
+	box-shadow: none;
+	padding: 0;
+ }
+main .panel .upload input[type="submit"] {
+	width: 200px;
+}
 	/* Подвал */
 footer {
 	padding-top: 20px;
