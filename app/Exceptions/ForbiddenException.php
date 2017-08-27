@@ -7,8 +7,7 @@ namespace App\Exceptions;
  *
  * @package App\Exceptions
  */
-class ForbiddenException
-    extends \Exception
+class ForbiddenException extends \Exception
 {
 
 }

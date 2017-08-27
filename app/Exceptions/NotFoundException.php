@@ -7,8 +7,7 @@ namespace App\Exceptions;
  *
  * @package App\Exceptions
  */
-class NotFoundException
-    extends \Exception
+class NotFoundException extends \Exception
 {
 
 }

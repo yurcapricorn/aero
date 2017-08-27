@@ -2,8 +2,7 @@
 
 namespace App\Exceptions;
 
-class MultiExceptions
-    extends \Exception
+class MultiExceptions extends \Exception
 {
     protected $data = [];
 

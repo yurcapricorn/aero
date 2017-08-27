@@ -63,10 +63,9 @@ class Db
             $sth->execute($params);
             $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
 
-            while($row = $sth->fetch()) {
+            while ($row = $sth->fetch()) {
                 yield $row;
             };
-
         } catch (\PDOException $e) {
             $exc = new DbException($e->getMessage(), $e->getCode());
             Logger::getInstance()->error($exc);

@@ -2,13 +2,14 @@
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?php echo $this->page->title; ?> | АэроКлимат</title>
+    <title><?php if (!empty($page->title)) { echo $this->page->title; } ?> | АэроКлимат</title>
 
-    <meta name="description" content="<?php echo $this->page->meta_d; ?>" />
-    <meta name="keywords" content="<?php echo $this->page->meta_k; ?>" />
+    <meta name="description" content="<?php if (!empty($page->meta_d)) { echo $page->meta_d; } ?>" />
+    <meta name="keywords" content="<?php if (!empty($page->meta_k)) { echo $page->meta_k; } ?>" />
 
     <link type="text/css" href="/css/style.css" rel="stylesheet" />
     <link type="text/css" href="/css/catalog.css" rel="stylesheet" />
+    <link type="text/css" href="/css/errors.css" rel="stylesheet" />
     <link type="text/css" href="/css/jcarousel.css" rel="stylesheet" />
     <link type="text/css" href="/css/tabs.css" rel="stylesheet" />
     <link type="text/css" href="/css/calc.css" rel="stylesheet" />
