@@ -11,8 +11,7 @@ use Psr\Log\AbstractLogger;
  *
  * @package App
  */
-class Logger
-    extends AbstractLogger
+class Logger extends AbstractLogger
 {
     use Singleton;
 

@@ -42,4 +42,15 @@ class Errors extends Controller
         $this->view->display(__DIR__ . '/../../views/errors/error500.php');
         die();
     }
+
+    /*
+     * Выводит страницу с ошибкой, если проблемы с БД
+     */
+    protected function action400()
+    {
+        header('HTTP/1.1 400 Bad Request ', 400);
+        $this->view->page  = Page::findByName('error400');
+        $this->view->display(__DIR__ . '/../../views/errors/error.php');
+        die();
+    }
 }

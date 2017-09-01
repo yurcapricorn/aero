@@ -17,11 +17,15 @@
             <h1><?php echo $item->title; ?></h1>
             <div class="panel">
                 <div class="upload clearfix">
-                    <img class="left" src="<?php if (!empty($item->image)) { ?>/images/<?php echo $page->name; ?>/<?php echo $item->image; } else { ?>/images/noImage.png<?php } ?>" width="130"/>
-                    Изображение:
-                    <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
+                    <img class="left" src="/images/<?php echo !empty($item->image) ?
+                        $page->name . '/' . $item->image : 'noImage.png'; ?>" width="130"/>
 
-                    <form action="/admin" method="post" enctype="multipart/form-data">
+                    <label>Изображение (только типы jpg | png | gif размером не более 5 мегабайт):
+                        <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
+                    </label>
+                    <form action="/admin/<?php echo $page->name; ?>/upload" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?php echo $item->id; ?>">
+                        <input type="hidden" name="dir" value="<?php echo $page->name; ?>">
                         <input type="file" name="image">
                         <input type="submit" value="Загрузить">
                     </form>
@@ -38,7 +42,10 @@
                         <option value=""></option>
 
                         <?php foreach ($this->authors as $author) : ?>
-                            <option value="<?php echo $author->id; ?>" <?php if (!empty($item->author_id) && $author->id === $item->author_id){?> selected<?php } ?>>
+                            <option value="<?php echo $author->id; ?>"
+                                <?php if (!empty($item->author_id) && $author->id === $item->author_id) :?>
+                                    selected
+                                <?php endif; ?>>
                                 <?php echo $author->name; ?>
                             </option>
                         <?php endforeach; ?>

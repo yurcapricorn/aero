@@ -3,6 +3,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\Errors;
 use App\Exceptions\DbException;
+use App\Exceptions\UploaderException;
 use App\Exceptions\NotFoundException;
 
 // получаем REQUEST_URI
@@ -47,13 +48,12 @@ try {
     $controller->action($actionName);
 
 } catch (DbException $e) {
-
     $controller = new Errors();
     $controller->action('500');
-
 } catch (NotFoundException $e) {
-
     $controller = new Errors();
     $controller->action('404');
-
+} catch (UploaderException $e) {
+    $controller = new Errors();
+    $controller->action('400');
 }

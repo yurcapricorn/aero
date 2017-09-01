@@ -31,7 +31,7 @@ abstract class Model
 
         $db = new Db();
         $data = $db->query($sql, static::class);
-        if (empty($data)){
+        if (empty($data)) {
             return false;
         }
         return $data;
@@ -48,7 +48,7 @@ abstract class Model
 
         $db = new Db();
         $data = $db->query($sql, static::class);
-        if (empty($data)){
+        if (empty($data)) {
             return false;
         }
         return $data;
@@ -65,7 +65,7 @@ abstract class Model
 
         $db = new Db();
         $data = $db->queryEach($sql, static::class);
-        if (empty($data)){
+        if (empty($data)) {
             return false;
         }
         return $data;
@@ -84,7 +84,7 @@ abstract class Model
 
         $db = new Db();
         $data = $db->query($sql, static::class);
-        if (empty($data)){
+        if (empty($data)) {
             return false;
         }
         return $data;
@@ -105,7 +105,7 @@ abstract class Model
 
         $db = new Db();
         $data = $db->query($sql, static::class, $params);
-        if (empty($data)){
+        if (empty($data)) {
             return null;
         }
         return array_shift($data);
@@ -126,7 +126,7 @@ abstract class Model
 
         $db = new Db();
         $data = $db->query($sql, static::class, $params);
-        if (empty($data)){
+        if (empty($data)) {
             return null;
         }
         return array_shift($data);
@@ -162,8 +162,8 @@ abstract class Model
     {
         $binds = [];
         $params = [];
-        foreach ($this->data as $key => $val){
-            if ('id' !== $key){
+        foreach ($this->data as $key => $val) {
+            if ('id' !== $key) {
                 $binds[] = $key . '=:' . $key;
             }
             $params[':' . $key] = $val;
@@ -181,7 +181,7 @@ abstract class Model
      */
     public function save(): bool
     {
-        if (true === $this->isNew()){
+        if (true === $this->isNew()) {
             return $this->insert();
         }
         return $this->update();

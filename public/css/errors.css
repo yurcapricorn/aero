@@ -1,4 +1,4 @@
-div.error403, div.error404, div.error500 {
+div.error403, div.error404, div.error500, div.error400 {
     width: 500px;
     height: 500px;
     margin: 0 auto;
@@ -12,4 +12,7 @@ div.error403, div.error404, div.error500 {
 }
 .error500 {
     background-image: url(/images/500.png);
+}
+.error400 {
+    background-image: url(/images/400.png);
 }

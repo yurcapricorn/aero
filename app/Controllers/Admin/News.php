@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Logger;
 use App\Models\Page;
+use App\Config;
 use App\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Author;
@@ -83,19 +84,45 @@ class News extends Controller
     }
 
     /*
+     * Метод actionUpload
+     * Загружает картинку на сервер
+     */
+    protected function actionUpload()
+    {
+        //var_dump($_FILES);die;
+        $config = Config::getInstance()->data;
+        $file = new Uploader('image');
+        $file->path($config['image']['path'])->upload();
+
+        $image = new Image();
+        $image->load($file->path . $file->destination . $file->name);
+        $image->resizeToWidth(130);
+        $image->save($file->path . $file->destination . $file->name);
+
+        $item = Article::findById((int)$_POST['id']);
+        if (null !== $item->image && is_readable($item->image)) {
+            unlink($file->path . $file->destination . $item->image);
+        }
+
+        $item->image = $file->name;
+        $item->save();
+        header('Location: /admin/news/edit/?id=' . (int)$_POST['id']);
+    }
+
+    /*
      * Метод actionDelete
      * Удаляет новость из БД
      */
     protected function actionDelete()
     {
-        $this->view->article = Article::findById($_GET['id'] ?? null);
-        if (empty($this->view->article)) {
+        $this->view->item = Article::findById($_GET['id'] ?? null);
+        if (empty($this->view->item)) {
             $exc = new NotFoundException('Новость не найдена!');
             Logger::getInstance()->error($exc);
             throw $exc;
         }
 
-        if (true === $this->view->article->delete()) {
+        if (true === $this->view->item->delete()) {
             header('Location: /admin/news');
             die();
         }

@@ -9,5 +9,8 @@ return [
     ],
     'log' => [
         'error'    => __DIR__ . '/../logs/errors.log'
+    ],
+    'image' => [
+        'path'     => __DIR__ . '/../public/images/'
     ]
 ];
