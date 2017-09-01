@@ -100,7 +100,7 @@ class News extends Controller
         $image->save($file->path . $file->destination . $file->name);
 
         $item = Article::findById((int)$_POST['id']);
-        if (null !== $item->image && is_readable($item->image)) {
+        if (null !== $item->image && is_readable($file->path . $file->destination . $item->image)) {
             unlink($file->path . $file->destination . $item->image);
         }
 
