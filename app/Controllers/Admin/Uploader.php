@@ -28,8 +28,6 @@ class Uploader
     public $path;
     /* Директория для загрузки */
     public $destination;
-    /* Ошибка при загрузке */
-    protected $error;
     /* Разрешенные типы файлов */
     protected static $allowedType = [
         'image/jpeg'  => 'jpg',
