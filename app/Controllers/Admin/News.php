@@ -91,7 +91,6 @@ class News extends Controller
      */
     protected function actionUpload()
     {
-        //var_dump($_FILES);die;
         $config = Config::getInstance()->data;
         $file = new Uploader('image');
         $file->path($config['image']['path'])->upload();
