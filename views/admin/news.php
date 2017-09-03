@@ -24,7 +24,7 @@
             </div>
             <article class="clearfix">
 
-                <img class="left" src="/images/<?php echo $page->name; ?>/<?php echo $item->image; ?>" width="130"/>
+                <img class="left" src="/images/<?php echo !empty($item->image) ? $page->name . '/' . $item->image : 'noImage.png'; ?>" width="130"/>
                 <span class="date"><?php echo $item->date; ?></span>
                 <a href="/admin/<?php echo $page->name; ?>/edit/?id=<?php echo $item->id; ?>" class="title">
                     <?php echo $item->title; ?>

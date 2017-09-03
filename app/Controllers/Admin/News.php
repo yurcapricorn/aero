@@ -5,6 +5,8 @@ namespace App\Controllers\Admin;
 use App\Logger;
 use App\Models\Page;
 use App\Config;
+use App\Components\Uploader;
+use App\Components\ImageProcessor;
 use App\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Author;
@@ -24,7 +26,7 @@ class News extends Controller
      */
     protected function actionDefault()
     {
-        $this->view->items = Article::findAll();
+        $this->view->items = Article::findAllLast();
         $this->view->page  = Page::findByName('news');
         $this->view->display(__DIR__ . '/../../../views/admin/news.php');
     }
@@ -94,7 +96,7 @@ class News extends Controller
         $file = new Uploader('image');
         $file->path($config['image']['path'])->upload();
 
-        $image = new Image();
+        $image = new ImageProcessor();
         $image->load($file->path . $file->destination . $file->name);
         $image->resizeToWidth(130);
         $image->save($file->path . $file->destination . $file->name);
@@ -115,14 +117,26 @@ class News extends Controller
      */
     protected function actionDelete()
     {
-        $this->view->item = Article::findById($_GET['id'] ?? null);
-        if (empty($this->view->item)) {
+        $item = Article::findById($_GET['id'] ?? null);
+
+        if (empty($item)) {
             $exc = new NotFoundException('Новость не найдена!');
             Logger::getInstance()->error($exc);
             throw $exc;
         }
 
-        if (true === $this->view->item->delete()) {
+        $config = Config::getInstance()->data;
+        $file   = $config['image']['path'] . 'news/' . $item->image;
+
+        if (null !== $item->image && is_readable($file)) {
+            if (false === unlink($file)) {
+                $exc = new NotFoundException('Не удалось удалить изображение!');
+                Logger::getInstance()->error($exc);
+                throw $exc;
+            }
+        }
+
+        if (true === $item->delete()) {
             header('Location: /admin/news');
             die();
         }

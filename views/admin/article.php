@@ -9,34 +9,35 @@
                 <a href="/admin/<?php echo $page->name; ?>"><?php echo $page->title; ?></a>
             </span>
             <span>
-                <?php echo $item->title; ?> - Редактирование
+                <?php echo !empty($item->title) ? $item->title . ' - Редактирование ' . mb_strtolower($page->title) : 'Добавление ' . mb_strtolower($page->title); ?>
             </span>
         </div>
         <main class="wide">
-
-            <h1><?php echo $item->title; ?></h1>
+            <h1><?php echo !empty($item->title) ? $item->title . ' - Редактирование ' . mb_strtolower($page->title) : 'Добавление ' . mb_strtolower($page->title); ?></h1>
             <div class="panel">
                 <div class="upload clearfix">
-                    <img class="left" src="/images/<?php echo !empty($item->image) ?
-                        $page->name . '/' . $item->image : 'noImage.png'; ?>" width="130"/>
-
-                    <label>Изображение (только типы jpg | png | gif размером не более 5 мегабайт):
-                        <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
-                    </label>
-                    <form action="/admin/<?php echo $page->name; ?>/upload" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="<?php echo $item->id; ?>">
-                        <input type="hidden" name="dir" value="<?php echo $page->name; ?>">
-                        <input type="file" name="image">
-                        <input type="submit" value="Загрузить">
-                    </form>
+                    <div class="left">
+                        <img src="/images/<?php echo !empty($item->image) ? $page->name . '/' . $item->image : 'noImage.png'; ?>" />
+                    </div>
+                    <?php if (!empty($item->id)) : ?>
+                        <label>Изображение (только типы jpg | png | gif размером не более 5 мегабайт):
+                            <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
+                        </label>
+                        <form action="/admin/<?php echo $page->name; ?>/upload" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="<?php echo $item->id; ?>">
+                            <input type="hidden" name="dir" value="<?php echo $page->name; ?>">
+                            <input type="file" name="image">
+                            <input type="submit" value="Загрузить">
+                        </form>
+                    <?php endif; ?>
                 </div>
                 <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
                     Id:
-                    <input type="text" name="id" value="<?php echo $item->id; ?>" readonly>
+                    <input type="text" name="id" value="<?php echo !empty($item->id) ? $item->id : ''; ?>" readonly>
                     Заголовок:
-                    <input type="text" name="title" value="<?php echo $item->title; ?>" required>
+                    <input type="text" name="title" value="<?php echo !empty($item->title) ? $item->title : ''; ?>" required>
                     Дата:
-                    <input type="date" name="date" value="<?php echo $item->date; ?>" required>
+                    <input type="date" name="date" value="<?php echo !empty($item->date) ? $item->date : date("Y-m-d"); ?>" required>
                     Автор:
                     <select name="author_id">
                         <option value=""></option>
@@ -52,7 +53,7 @@
 
                     </select>
                     Текст:
-                    <textarea name="text" required><?php echo $item->text; ?></textarea>
+                    <textarea name="text" required><?php echo !empty($item->text) ? $item->text : ''; ?></textarea>
 
                     <input type="submit" value="Отправить">
                 </form>

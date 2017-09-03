@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Components;
 
 use App\Logger;
 use App\Controllers\Controller;

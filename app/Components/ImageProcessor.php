@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Controllers\Admin;
+namespace App\Components;
 
 
-class Image
+class ImageProcessor
 {
     public $image;
     public $imageType;
