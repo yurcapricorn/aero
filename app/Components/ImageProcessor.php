@@ -3,7 +3,6 @@
 
 namespace App\Components;
 
-
 class ImageProcessor
 {
     public $image;
@@ -20,6 +19,7 @@ class ImageProcessor
         } elseif ($this->imageType === IMAGETYPE_PNG) {
             $this->image = imagecreatefrompng($filename);
         }
+        return $this;
     }
 
     public function save($filename, $imageType = IMAGETYPE_JPEG, $compression = 75, $permissions = null)
@@ -69,6 +69,7 @@ class ImageProcessor
         $ratio  = $width / $this->getWidth();
         $height = $this->getheight() * $ratio;
         $this->resize($width, $height);
+        return $this;
     }
 
     public function scale($scale)
