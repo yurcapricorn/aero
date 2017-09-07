@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 01 2017 г., 21:17
+-- Время создания: Сен 07 2017 г., 18:12
 -- Версия сервера: 5.7.19
 -- Версия PHP: 7.1.7
 
@@ -207,7 +207,7 @@ INSERT INTO `pages` (`id`, `name`, `title`, `meta_d`, `meta_k`, `text`, `text1`,
 (5, 'faqs', 'Вопросы и ответы', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', '', '', '', ''),
 (6, 'news', 'Новости', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', '', '', '', ''),
 (7, 'papers', 'Статьи', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', '', '', '', ''),
-(8, 'contacts', 'Контакты', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', '<p><span>ИП Медянцев А. В.</span>ИНН 032612658649<br>ОГРНИП 313032717700095</p>                  <p><span>Адрес:</span>Новосибирск, ул. Весенняя, д. 12а</p>                  <p><span>Телефоны: </span>8 (383) 381-93-86</p>                  <p><span>Email: </span><a href=\"mailto:mail@aero-nsk.ru\" >mail@aero-nsk.ru</a></p>', '<script type=\"text/javascript\" charset=\"utf-8\" src=\"//api-maps.yandex.ru/services/constructor/1.0/js/?sid=Y95RTXo3KAGx-U3whEzguy9atiswZEu5&width=450&height=350\"></script>', '', ''),
+(8, 'contacts', 'Контакты', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', '<p><span>ИП Медянцев А. В.</span>ИНН 032612658649<br>ОГРНИП 313032717700095</p>\r\n<p><span>Адрес:</span>Новосибирск, ул. Весенняя, д. 12а</p> \r\n<p><span>Телефоны: </span>8 (383) 381-93-86</p> \r\n<p><span>Email: </span><a href=\"mailto:mail@aero-nsk.ru\" >mail@aero-nsk.ru</a></p>', '<script type=\"text/javascript\" charset=\"utf-8\" src=\"//api-maps.yandex.ru/services/constructor/1.0/js/?sid=Y95RTXo3KAGx-U3whEzguy9atiswZEu5&width=450&height=350\"></script>', '', ''),
 (9, 'catalog', 'Каталог', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', '', '', '', ''),
 (10, 'error403', 'Доступ запрещен', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', 'Доступ запрещен', '', '', ''),
 (11, 'error404', 'Страница не найдена', 'интернет-магазин климатической техники', 'магазин, интернет-магазин, климат, кондиционеры, увлажнители, очистители, обогреватели', 'Страница не найдена', '', '', ''),
@@ -479,7 +479,7 @@ ALTER TABLE `faqs`
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT для таблицы `pages`
 --
@@ -489,7 +489,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT для таблицы `papers`
 --
 ALTER TABLE `papers`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблицы `product`
 --
@@ -504,7 +504,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT для таблицы `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --

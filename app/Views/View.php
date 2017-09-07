@@ -13,8 +13,7 @@ use App\Traits\ArrayAccess;
  *
  * @package App
  */
-class View
-    implements \Iterator, \Countable, \ArrayAccess
+class View implements \Iterator, \Countable, \ArrayAccess
 {
     use Magic;
     use Iterator;

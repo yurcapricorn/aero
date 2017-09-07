@@ -5,10 +5,10 @@ namespace App\Controllers\Admin;
 use App\Logger;
 use App\Config;
 use App\Models\Page;
-use App\Models\Author;
 use App\Models\Article;
-use App\Components\Uploader;
+use App\Models\Author;
 use App\Controllers\Controller;
+use App\Components\Uploader;
 use App\Components\ImageProcessor;
 use App\Exceptions\DbException;
 use App\Exceptions\NotFoundException;
@@ -61,7 +61,6 @@ class News extends Controller
         if (!empty($_POST['title']) && !empty($_POST['text'])) {
             if (!empty($_POST['id'])) {
                 $item = Article::findById((int)$_POST['id'] ?? null);
-
                 if (empty($item)) {
                     $exc = new NotFoundException('Новость не найдена!');
                     Logger::getInstance()->error($exc);
@@ -147,9 +146,9 @@ class News extends Controller
         }
 
         $config = Config::getInstance()->data;
-        $file   = $config['image']['path'] . 'news/' . $item->image;
-        if (null !== $item->image && is_readable($file)) {
-            if (false === unlink($file)) {
+        $imageName   = $config['image']['path'] . 'news/' . $item->image;
+        if (null !== $item->image && is_readable($imageName)) {
+            if (false === unlink($imageName)) {
                 $exc = new UploaderException('Не удалось удалить изображение!');
                 Logger::getInstance()->error($exc);
                 throw $exc;

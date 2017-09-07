@@ -16,7 +16,6 @@ class Db
 
     public function __construct()
     {
-        // $config = require __DIR__ . '/config.php';
         $config = Config::getInstance()->data;
         $dsn = 'mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['dbname'];
         try {

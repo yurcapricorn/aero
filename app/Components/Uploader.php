@@ -3,12 +3,7 @@
 namespace App\Components;
 
 use App\Logger;
-use App\Controllers\Controller;
-use App\Models\Page;
-use App\Models\Article;
-use App\Models\Author;
 use App\Exceptions\UploaderException;
-use App\Exceptions\NotFoundException;
 
 /*
  * Class Admin\Index
