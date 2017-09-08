@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/header.php'; ?>
+<?php require __DIR__ . '/../header.php'; ?>
 
     <section class="container clearfix">
         <div class="path">
@@ -20,7 +20,7 @@
                         <img src="/images/<?php echo !empty($item->image) ? $page->name . '/' . $item->image : 'noImage.png'; ?>" />
                     </div>
                     <?php if (!empty($item->id)) : ?>
-                        <label>Изображение (только типы jpg | png | gif размером не более 5 мегабайт):
+                        <label>Изображение (типы jpg | png | gif размером не более 5 мегабайт будет приведено к размерам 130х130px):
                             <input type="text" name="image" value="<?php echo $item->image; ?>" readonly>
                         </label>
                         <form action="/admin/<?php echo $page->name; ?>/upload" method="post" enctype="multipart/form-data">
@@ -62,4 +62,4 @@
         </main>
     </section>
 
-<?php require __DIR__ . '/footer.php';
+<?php require __DIR__ . '/../footer.php';

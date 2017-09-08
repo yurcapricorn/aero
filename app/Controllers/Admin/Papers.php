@@ -30,7 +30,7 @@ class Papers extends Controller
     {
         $this->view->page  = Page::findByName('papers');
         $this->view->items = Paper::findAllLast();
-        $this->view->display(__DIR__ . '/../../../views/admin/news.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/news.php');
     }
 
     /*
@@ -49,7 +49,7 @@ class Papers extends Controller
         }
         $this->view->page  = Page::findByName('papers');
         $this->view->authors = Author::findAll();
-        $this->view->display(__DIR__ . '/../../../views/admin/article.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/article.php');
     }
 
     /*

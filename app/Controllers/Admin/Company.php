@@ -22,7 +22,7 @@ class Company extends Controller
     protected function actionDefault()
     {
         $this->view->page  = Page::findByName('company');
-        $this->view->display(__DIR__ . '/../../../views/admin/page.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/page.php');
     }
 
     /*

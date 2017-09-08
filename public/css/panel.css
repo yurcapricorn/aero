@@ -26,8 +26,14 @@
 .italic {
 	font-style: italic;
 }
-.center {
+.centerText {
 	text-align: center;
+}
+.leftText {
+	text-align: left;
+}
+.rightText {
+	text-align: right;
 }
 body {
 	background-color: #fff;
@@ -310,7 +316,6 @@ main.narrow .title {
 	font: 20px/24px "Display";
 	margin: 8px 0;
 }
-
 /* Панель */
 main .panel {
 
@@ -381,7 +386,56 @@ main .panel .upload input[type="file"] {
 main .panel .upload input[type="submit"] {
 	width: 200px;
 }
-	/* Подвал */
+/* Каталог */
+main table.product {
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+	vertical-align: top;
+	font: 14px/18px "Display";
+	color: #333;
+}
+main table.product th,
+main table.product td {
+	padding: 5px 10px;
+	border: 1px solid #cccccc;
+	//border-bottom: 1px solid #cccccc;
+}
+main table.product td.update,
+main table.product td.delete,
+main table.product td.update a,
+main table.product td.delete a {
+	width: 25px;
+	vertical-align: middle;
+}
+main table.product td.update a,
+main table.product td.delete a {
+	height: 25px;
+	display: block;
+}
+main table.product td.update a {
+	//margin-right: 10px;
+	background: #ffffff url(/images/update.png) no-repeat;
+}
+main table.product td.delete a {
+	background: #ffffff url(/images/delete.png) no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Подвал */
 footer {
 	padding-top: 20px;
 	padding-bottom: 5px;

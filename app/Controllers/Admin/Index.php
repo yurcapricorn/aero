@@ -24,7 +24,7 @@ class Index extends Controller
     protected function actionDefault()
     {
         $this->view->page  = Page::findByName('index');
-        $this->view->display(__DIR__ . '/../../../views/admin/page.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/page.php');
     }
 
     /*
@@ -44,7 +44,7 @@ class Index extends Controller
             }
         }
         $this->view->authors = Author::findAll();
-        $this->view->display(__DIR__ . '/../../../views/admin/article.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/article.php');
     }
 
     /*
@@ -53,7 +53,7 @@ class Index extends Controller
      */
     protected function actionSave()
     {
-        if (!empty($_POST['header']) && !empty($_POST['text'])){
+        if (!empty($_POST['header']) && !empty($_POST['text'])) {
             if (!empty($_POST['id'])) {
                 $article = Article::findById((int)$_POST['id']);
 
@@ -69,7 +69,7 @@ class Index extends Controller
 
             $article->fill($_POST);
 
-            if (empty($_POST['author_id'])){
+            if (empty($_POST['author_id'])) {
                 $article->author_id = null;
             }
 

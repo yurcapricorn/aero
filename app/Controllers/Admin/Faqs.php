@@ -25,7 +25,7 @@ class Faqs extends Controller
     {
         $this->view->items = Faq::findAll();
         $this->view->page  = Page::findByName('faqs');
-        $this->view->display(__DIR__ . '/../../../views/admin/messages.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/messages.php');
     }
 
     /*
@@ -45,7 +45,7 @@ class Faqs extends Controller
             }
         }
         $this->view->page  = Page::findByName('faqs');
-        $this->view->display(__DIR__ . '/../../../views/admin/message.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/message.php');
     }
 
     /*

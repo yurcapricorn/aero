@@ -24,7 +24,7 @@ class Contacts extends Controller
     protected function actionDefault()
     {
         $this->view->page  = Page::findByName('contacts');
-        $this->view->display(__DIR__ . '/../../../views/admin/page.php');
+        $this->view->display(__DIR__ . '/../../../views/admin/default/page.php');
     }
 
     /*
