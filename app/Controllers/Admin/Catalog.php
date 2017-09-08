@@ -32,4 +32,23 @@ class Catalog extends Controller
         $this->view->items = Product::findAll();
         $this->view->display(__DIR__ . '/../../../views/admin/default/catalog.php');
     }
+
+    /*
+     * Метод actionEdit
+     * Выводит форму добавления/редактирования товара
+     */
+    protected function actionEdit()
+    {
+        if (!empty($_GET['id'])) {
+            $this->view->item = Product::findById((int)$_GET['id'] ?? null);
+            if (empty($this->view->item)) {
+                $exc = new NotFoundException('Новость не найдена!');
+                Logger::getInstance()->error($exc);
+                throw $exc;
+            }
+        }
+        $this->view->page    = Page::findByName('news');
+        $this->view->authors = Author::findAll();
+        $this->view->display(__DIR__ . '/../../../views/admin/default/product.php');
+    }
 }

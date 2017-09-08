@@ -2,7 +2,6 @@
 
     <?php require __DIR__ . '/menu.php'; ?>
 
-    <div class="tel right"><span>8 (383) </span>381-93-86</div>
     <div class="line clear"></div>
     <div class="copy left">&copy; 2017 АэроКлимат</div>
     <div class="docs left"><a href="#">Пользовательское соглашение</a></div>

@@ -42,10 +42,10 @@
                 <td><?php echo $item->quantity; ?></td>
                 <td><?php echo $item->updated_at; ?></td>
                 <td class="update">
-                    <a href="/admin/<?php echo $page->name; ?>/edit/?id=<?php echo $item->id; ?>"></a>
+                    <a href="/admin/<?php echo $page->name; ?>/edit/?id=<?php echo $item->id; ?>" title="Изменить"></a>
                 </td>
                 <td class="delete">
-                    <a href="/admin/<?php echo $page->name; ?>/delete/?id=<?php echo $item->id; ?>"></a>
+                    <a href="/admin/<?php echo $page->name; ?>/delete/?id=<?php echo $item->id; ?>" title="Удалить"></a>
                 </td>
             </tr>
             <?php endforeach; ?>

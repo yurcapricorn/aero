@@ -11,6 +11,7 @@
     <link type="text/css" href="/css/errors.css" rel="stylesheet" />
 
     <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/js/panel.js"></script>
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 </head>
