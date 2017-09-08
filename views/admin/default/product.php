@@ -26,28 +26,84 @@
 
                     <div class="tabs con_tab active" id="con_tab1">
                         <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
-                            Id:
-                            <input type="text" name="id" value="<?php echo !empty($item->id) ? $item->id : ''; ?>" readonly>
-                            Время изменения:
-                            <input type="datetime" name="updated_at" value="<?php echo !empty($item->date) ? $item->date : date("Y-m-d H:i:s"); ?>" readonly>
-                            Название:
-                            <input type="text" name="title" value="<?php echo !empty($item->title) ? $item->title : ''; ?>" required>
-                            Автор:
-                            <select name="author_id">
-                                <option value=""></option>
+                            <table class="product">
+                                <tr>
+                                    <th>ID:</th>
+                                    <td><input type="text" name="id" value="<?php echo !empty($item->id) ? $item->id : ''; ?>" readonly></td>
+                                </tr>
+                                <tr>
+                                    <th>Создан:</th>
+                                    <td><input type="datetime" name="created" value="<?php echo !empty($item->created) ? $item->created : date("Y-m-d H:i:s"); ?>" readonly></td>
+                                </tr>
+                                <tr>
+                                    <th>Изменен:</th>
+                                    <td><input type="datetime" name="updated" value="<?php echo !empty($item->created) ? date("Y-m-d H:i:s") : ''; ?>" readonly></td>
+                                </tr>
+                                <tr>
+                                    <th>Активность:</th>
+                                    <td><input type="checkbox" <?php if ('0' !== $item->activity) {?> checked<?php } ?>></td>
+                                </tr>
+                                <tr>
+                                    <th>Слайдер:</th>
+                                    <td><input type="checkbox" <?php if ('0' !== $item->slider) {?> checked<?php } ?>></td>
+                                </tr>
+                                <tr>
+                                    <th>Спецпредложения:</th>
+                                    <td><input type="checkbox" <?php if ('0' !== $item->isSpecial) {?> checked<?php } ?>></td>
+                                </tr>
+                                <tr>
+                                    <th>Новинки:</th>
+                                    <td><input type="checkbox" <?php if ('0' !== $item->isNew) {?> checked<?php } ?>></td>
+                                </tr>
+                                <tr>
+                                    <th>Популярные:</th>
+                                    <td><input type="checkbox" <?php if ('0' !== $item->isPopular) {?> checked<?php } ?>></td>
+                                </tr>
+                                <tr>
+                                    <th>Название:</th>
+                                    <td><input type="text" name="title" value="<?php echo !empty($item->title) ? $item->title : ''; ?>" required></td>
+                                </tr>
+                                <tr>
+                                    <th>Категория:</th>
+                                    <td><select name="category">
+                                            <option value=""></option>
 
-                                <?php foreach ($categories1 as $category1) : ?>
-                                    <option value="<?php echo $category1->id; ?>"
-                                        <?php if (!empty($item->author_id) && $author->id === $item->author_id) :?>
-                                            selected
-                                        <?php endif; ?>>
-                                        <?php echo $category1->name; ?>
-                                    </option>
-                                <?php endforeach; ?>
+                                            <?php foreach ($categories1 as $category1) : ?>
+                                                <option value="<?php echo $category1->id; ?>"
+                                                    <?php if (!empty($item->author_id) && $author->id === $item->author_id) :?>
+                                                        selected
+                                                    <?php endif; ?>>
+                                                    <?php echo $category1->name; ?>
+                                                </option>
+                                            <?php endforeach; ?>
 
-                            </select>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <th>Производитель:</th>
+                                    <td><select name="vendor">
+                                            <option value=""></option>
 
-                            Текст:
+                                            <?php foreach ($vendors as $vendor) : ?>
+                                                <option value="<?php echo $vendor->id; ?>"
+                                                    <?php if (!empty($item->vendor_id) && $vendor->id === $item->vendor_id) :?>
+                                                        selected
+                                                    <?php endif; ?>>
+                                                    <?php echo $vendor->name; ?>
+                                                </option>
+                                            <?php endforeach; ?>
+
+                                        </select></td>
+                                </tr>
+                            </table>
+
+
+
+
+
+
+
+                            Описание:
                             <textarea name="text" required><?php echo !empty($item->text) ? $item->text : ''; ?></textarea>
                             <input type="submit" value="Отправить">
                         </form>

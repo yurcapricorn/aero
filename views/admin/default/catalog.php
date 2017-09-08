@@ -17,7 +17,7 @@
             <a href="/admin/<?php echo $page->name; ?>/edit">Добавить товар</a>
         </div>
 
-        <table class="product">
+        <table class="catalog">
             <tr>
                 <th>ID</th>
                 <th>Название</th>
@@ -40,7 +40,7 @@
                 <td><?php echo $item->articul; ?></td>
                 <td class="rightText"><?php echo $item->price; ?></td>
                 <td><?php echo $item->quantity; ?></td>
-                <td><?php echo $item->updated_at; ?></td>
+                <td><?php echo $item->updated; ?></td>
                 <td class="update">
                     <a href="/admin/<?php echo $page->name; ?>/edit/?id=<?php echo $item->id; ?>" title="Изменить"></a>
                 </td>

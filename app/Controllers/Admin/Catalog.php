@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Logger;
 use App\Config;
 use App\Models\Page;
+use App\Models\Vendor;
 use App\Models\Product;
 use App\Models\CategoryFirstLevel;
 use App\Models\CategorySecondLevel;
@@ -49,6 +50,7 @@ class Catalog extends Controller
             }
         }
         $this->view->page    = Page::findByName('catalog');
+        $this->view->vendors = Vendor::findAll();
         $this->view->categories1 = CategoryFirstLevel::findAll();
         $this->view->categories2 = CategorySecondLevel::findAll();
         $this->view->display(__DIR__ . '/../../../views/admin/default/product.php');

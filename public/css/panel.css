@@ -344,8 +344,14 @@ main .panel input[type="submit"] {
 	width: 200px;
 	height: 35px;
 }
+main .panel input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	display: block;
+}
 main .panel textarea {
 	height: 400px;
+	padding-top: 5px;
 }
 main .panel textarea.small {
 	height: 50px;
@@ -442,43 +448,63 @@ main .panel .upload input[type="submit"] {
 
 
 /* Каталог */
-main table.product {
-	width: 100%;
+main table.catalog {
+	width: 930px;
 	margin-top: 10px;
 	text-align: center;
 	vertical-align: top;
 	font: 14px/18px "Display";
 	color: #333;
 }
-main table.product th,
-main table.product td {
+main table.catalog th,
+main table.catalog td {
 	padding: 5px 10px;
-	border: 1px solid #cccccc;
-	//border-bottom: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
 }
-main table.product td.update,
-main table.product td.delete,
-main table.product td.update a,
-main table.product td.delete a {
+main table.catalog td.update,
+main table.catalog td.delete,
+main table.catalog td.update a,
+main table.catalog td.delete a {
 	width: 25px;
 	vertical-align: middle;
 }
-main table.product td.update a,
-main table.product td.delete a {
+main table.catalog td.update a,
+main table.catalog td.delete a {
 	height: 25px;
 	display: block;
 }
-main table.product td.update a {
+main table.catalog td.update a {
 	//margin-right: 10px;
 	background: #ffffff url(/images/update.png) no-repeat;
 }
-main table.product td.delete a {
+main table.catalog td.delete a {
 	background: #ffffff url(/images/delete.png) no-repeat;
 }
+/* Товар */
+main table.product {
+	width: 930px;
+	margin: 10px 0;
+	font: 14px/18px "Display";
+	color: #333;
+}
+main table.product th {
+	width: 150px;
+	height: 30px;
+	padding-right: 20px;
+	text-align: right;
+	vertical-align: middle;
+}
+main table.product td {
 
-
-
-
+}
+main table.product input{
+	width: 730px;
+}
+main table.product select {
+	width: 750px;
+	margin-bottom: 10px;
+}
 
 
 
