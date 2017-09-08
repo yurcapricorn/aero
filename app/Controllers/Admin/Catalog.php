@@ -6,7 +6,8 @@ use App\Logger;
 use App\Config;
 use App\Models\Page;
 use App\Models\Product;
-use App\Models\Author;
+use App\Models\CategoryFirstLevel;
+use App\Models\CategorySecondLevel;
 use App\Controllers\Controller;
 use App\Components\Uploader;
 use App\Components\ImageProcessor;
@@ -47,8 +48,9 @@ class Catalog extends Controller
                 throw $exc;
             }
         }
-        $this->view->page    = Page::findByName('news');
-        $this->view->authors = Author::findAll();
+        $this->view->page    = Page::findByName('catalog');
+        $this->view->categories1 = CategoryFirstLevel::findAll();
+        $this->view->categories2 = CategorySecondLevel::findAll();
         $this->view->display(__DIR__ . '/../../../views/admin/default/product.php');
     }
 }

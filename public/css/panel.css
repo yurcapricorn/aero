@@ -395,7 +395,7 @@ main .panel .upload input[type="submit"] {
 }
 /* Кнопки закладок */
 .sort {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .sort span {
 	float: left;
