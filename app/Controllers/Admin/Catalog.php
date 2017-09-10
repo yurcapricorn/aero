@@ -50,7 +50,8 @@ class Catalog extends Controller
         }
         $this->view->page    = Page::findByName('catalog');
         $this->view->vendors = Vendor::findAll();
-        $this->view->categories = Category::findAll();
+        $this->view->categories = Category::getTreeCategories();
+
         $this->view->display(__DIR__ . '/../../../views/admin/default/product.php');
     }
 }
