@@ -57,7 +57,7 @@
                         </div>
                     </a>
                     <a href="/<?php echo $page->name; ?>/show/?id=<?php echo $item->id; ?>" class="title">
-                        <?php echo $item->name; ?>
+                        <?php echo $item->title; ?>
                     </a>
                     <span class="price">
                         <?php echo $item->price; ?> р.

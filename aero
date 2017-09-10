@@ -1,0 +1,52 @@
+#!/usr/bin/env php
+
+<?php
+
+if ($argc < 2) {
+    echo 'sql:import - [Импортирует файл с дампом в БД]' . PHP_EOL;
+    echo 'sql:export - [Создает дамп БД]' . PHP_EOL;
+    exit(0);
+}
+
+$commands = array_pop($argv);
+
+if (false === strpos($commands, ':')) {
+    echo '[ERROR] Не передана опция для выполнения операции' . PHP_EOL;
+    exit(1);
+}
+
+[$command, $options] = explode(':', $commands);
+
+if ($command === 'sql') {
+    $config = require __DIR__ . '/config/config.php';
+    switch ($options) {
+        case 'import':
+            echo 'Загружаю дамп [' . $config['db']['dbname'] . '] БД' . PHP_EOL;
+            system(sprintf(
+                'mysql -u %s -e "create database if not exists %s"',
+                $config['db']['user'],
+                $config['db']['dbname']
+            ));
+            system(sprintf(
+                'mysql -u %s %s < %s.sql',
+                $config['db']['user'],
+                $config['db']['dbname'],
+                __DIR__ . '/config/' . $config['db']['dbname']
+            ));
+            break;
+        case 'export':
+            echo 'Выгружаю дамп [' . $config['db']['dbname'] . '] ДБ' . PHP_EOL;
+            system(sprintf(
+                'mysqldump -u %s %s > %s.sql',
+                $config['db']['user'],
+                $config['db']['dbname'],
+                __DIR__ . '/config/' . $config['db']['dbname']
+            ));
+            break;
+        default:
+            echo '[ERROR] Заданная комманда не найдена' . PHP_EOL;
+            exit(1);
+    }
+}
+
+exit(0);

@@ -46,7 +46,7 @@
                 </div>
                 <div class="desc right">
                     <div class="title">
-                        <h1><?php echo $item->name; ?></h1>
+                        <h1><?php echo $item->title; ?></h1>
                         <div class="articul">Артикул 012050025</div>
                     </div>
                     <div class="compareBlock">
