@@ -49,4 +49,4 @@ if ($command === 'sql') {
     }
 }
 
-exit(1);
+exit(0);
