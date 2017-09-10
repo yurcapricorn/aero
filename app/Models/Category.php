@@ -10,7 +10,7 @@ namespace App\Models;
  *
  * @property string $name
  */
-class CategoryFirstLevel extends Model
+class Category extends Model
 {
-    protected static $table = 'category1';
+    protected static $table = 'category';
 }
