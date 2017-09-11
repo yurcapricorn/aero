@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var \App\Models\Page $page
+ * @var \App\Models\Product $item
+ * @var array $categories
+ */
+?>
 <form action="/admin/<?php echo $page->name; ?>/save" method="post" class="panel">
     <table class="product">
         <tr>
@@ -46,8 +53,9 @@
             <th>Категория:</th>
             <td>
                 <select name="category">
-                    <option value=""></option>
-                    <?php getTreeCategories($categories) ?>
+                    <option></option>
+                    <?php (new \App\Components\TreeCategoryView($categories, $item->category_id))
+                        ->display(__DIR__ . '/partCat.php'); ?>
                 </select>
             </td>
 
@@ -73,17 +81,3 @@
     <textarea name="text" required><?php echo !empty($item->text) ? $item->text : ''; ?></textarea>
     <input type="submit" value="Отправить">
 </form>
-
-<?php
-
-function getTreeCategories(array $data, int $shift = 0)
-{
-    foreach ($data as $key => $value) :?>
-        <option value="<?php echo $key; ?>">
-            <?php echo str_repeat('-', $shift),' ',$value['title'] ?>
-        </option>
-        <?php if (!empty($value['children'])) {
-            getTreeCategories($value['children'], $shift + 3);
-        }
-    endforeach;
-}

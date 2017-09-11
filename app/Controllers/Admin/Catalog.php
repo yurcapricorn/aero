@@ -14,6 +14,7 @@ use App\Components\ImageProcessor;
 use App\Exceptions\DbException;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\UploaderException;
+use App\Views\View;
 
 /*
  * Class Admin\Catalog
