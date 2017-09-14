@@ -29,10 +29,10 @@
         <?php require __DIR__ . '/menu.php'; ?>
 
         <div class="enter right">
-            <a href="#">Вход</a>
+            <a href="/authenticate/login/">Вход</a>
         </div>
         <div class="reg right">
-            <a href="/auth/registration.php">Регистрация</a>
+            <a href="/authenticate/">Регистрация</a>
         </div>
     </div>
 </div>
