@@ -2,9 +2,8 @@
 
 namespace App\Components;
 
-use App\Config;
-use App\Exceptions\DbException;
-use App\Logger;
+use App\Db;
+use App\Models\User;
 
 /**
  * Class Authorisation
@@ -13,26 +12,18 @@ use App\Logger;
 class Authorisation
 {
     /**
-     * @var \PDO
+     * @var Db
      */
-    protected $dbh;
+    protected $db;
 
     /**
      * Authorisation constructor.
      */
     public function __construct()
     {
-        $config = Config::getInstance()->data;
-        $dsn = 'mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['dbname'];
-        try {
-            $this->dbh = new \PDO($dsn, $config['db']['user'], $config['db']['password']);
-        } catch (\PDOException $e) {
-            $exc = new DbException($e->getMessage(), $e->getCode());
-            Logger::getInstance()->emergency($exc);
-            throw $exc;
-        }
+        $this->db = new Db();
     }
-    
+
     /**
      * @param $email
      * @param $pass
@@ -41,18 +32,18 @@ class Authorisation
     public function authenticate($email, $pass)
     {
         $user = $this->isEmailExist($email);
-        if (!empty($user) && password_verify($pass, $user['password']) === true) {
-            return $user['id'];
+        if (!empty($user) && password_verify($pass, $user->password) === true) {
+            return $user->id;
         }
         return false;
     }
 
-    public function isEmailExist($email){
-        $sth = $this->dbh->prepare('SELECT * FROM user WHERE email=:email');
-        $sth->execute([':email' => $email]);
-        $user = $sth->fetch();
-        if (!empty($user)){
-            return $user;
+    public function isEmailExist($email)
+    {
+
+        $users = $this->db->query('SELECT * FROM user WHERE email=:email', User::class, [':email' => $email]);
+        if (!empty($users)) {
+            return $users[0];
         }
         return false;
     }
@@ -63,8 +54,7 @@ class Authorisation
     public function setUserSession($user_id)
     {
         $session_id = hash('sha256', microtime(true) . uniqid());
-        $sth = $this->dbh->prepare('UPDATE user SET session_id=:session_id WHERE id=:id');
-        $sth->execute([':session_id' => $session_id, ':id' => $user_id]);
+        $this->db->execute('UPDATE user SET session_id=:session_id WHERE id=:id', [':session_id' => $session_id, ':id' => $user_id]);
         setcookie('MYSESSID', $session_id);
     }
 
@@ -77,13 +67,11 @@ class Authorisation
         if (empty($session_id)) {
             return null;
         } else {
-            $sth = $this->dbh->prepare('SELECT * FROM user WHERE session_id=:session_id');
-            $sth->execute([':session_id' => $session_id]);
-            $user = $sth->fetch();
-            if (empty($user)) {
+            $users = $this->db->query('SELECT * FROM user WHERE session_id=:session_id', User::class, [':session_id' => $session_id]);
+            if (empty($users)) {
                 return null;
             } else {
-                return $user;
+                return $users[0];
             }
         }
     }
