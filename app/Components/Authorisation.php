@@ -32,19 +32,7 @@ class Authorisation
             throw $exc;
         }
     }
-
-    /**
-     * @param $email
-     * @param $pass
-     * @return string
-     */
-    public function register($email, $pass)
-    {
-        $sth = $this->dbh->prepare('INSERT INTO user (email, password) VALUES (:email, :password)');
-        $sth->execute([':email' => $email, ':password' => password_hash($pass, PASSWORD_DEFAULT)]);
-        return $this->dbh->lastInsertId();
-    }
-
+    
     /**
      * @param $email
      * @param $pass

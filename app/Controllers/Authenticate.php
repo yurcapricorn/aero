@@ -20,7 +20,7 @@ class Authenticate extends Controller
     }
 
     /**
-     * default
+     * login
      */
     public function actionLogin()
     {
@@ -57,12 +57,7 @@ class Authenticate extends Controller
             $user->$property = $value;
         }
 
-        var_dump($user);
-
         $user_id = $user->save();
-
-        var_dump($user_id);
-
         $auth->setUserSession($user_id);
 
         header('Location: /');
